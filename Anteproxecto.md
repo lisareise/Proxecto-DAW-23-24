@@ -40,10 +40,10 @@
 ## 3- Axudas e financiación
 
 >#### Recursos materiais
->Existencia dun ordenador de sobremesa ou portátil: 1300 €
->Licencia de software (Windows 11): 8 €
->Conexión a internet (fibra): 30 €
->Electricidad (durante tres meses): 141 €
+>- Existencia dun ordenador de sobremesa ou portátil: 1300 €
+>- Licencia de software (Windows 11): 8 €
+>- Conexión a internet (fibra): 30 €
+>- Electricidad (durante tres meses): 141 €
 >##### Total: 1479 €
 
 
