@@ -39,17 +39,28 @@
 
 ## 3- Axudas e financiación
 
->#### Recursos materiais
+>#### Recursos materiais (durante 3 meses)
 >- Existencia dun ordenador de sobremesa ou portátil: 1300 €
->- Licencia de software (Windows 11): 8 €
->- Conexión a internet (fibra): 30 €
+>- Licencia de software (Windows 11): 150 €
+>- Conexión a internet (fibra): 90 €
 >- Electricidad (durante tres meses): 141 €
->##### Total: 1479 €
+>##### Total: 1681 €
 
 
 ## 4- Prevención de riesgos laborales
 
-> _EXPLICACIÓN_: Neste apartado indicaranse as necesidades de permisos e autorizacións para levar a cabo as actividades, se son precisas, identificaranse os riscos inherentes á execución, e definirase o plan de prevención de riscos, así como os medios e os equipamentos necesarios.
+> #### Riesgos
+> - Posibilidad de ser hackeado.
+> - Pérdida de datos del desarrollo de la web.
+> - Fallos en el desarrollo o despliegue.
+> - Accidentes debido a desorden o vertidos de líquidos en el área de trabajo.
+> - Posibles lesiones musculoesqueléticas debido a malas posturas, daños oculares. 
+> #### Medidas de prevención
+> - Uso de contraseñas seguras.
+> - Mantener el software actualizado y disponer de antivirus.
+> - Realizar copias de seguridad y guardar el código de desarrollo en un repositorio.
+> - Mantener el espacio de trabajo siempre limpio y ordenado, y tener cuidado con líquidos que podrían entrar en contacto con algún cable u ordenador y estropear el medio de trabajo.
+> - Uso de sillas ergonómicas, una buena postura al estar sentado, mantener las pantallas a una cierta distancia, disponer de una buena iluminación, hacer breves pausas y estiramientos durante el tiempo que se está trabajando, usar gafas con filtro azul para proteger la vista. 
 
 ## 5- Modelo de negocio
 
