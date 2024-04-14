@@ -6,6 +6,7 @@
   - [3- Axudas e financiación](#3--axudas-e-financiación)
   - [4- Prevención de riesgos laborales](#4--prevención-de-riesgos-laborales)
   - [5- Modelo de negocio](#5--modelo-de-negocio)
+      - [Modelo canvas](#modelo-canvas)
     - [5.1- Viabilidade](#51--viabilidade)
       - [5.1.1- Viabilidade técnica](#511--viabilidade-técnica)
       - [5.1.2- Viabilidade económica](#512--viabilidade-económica)
@@ -13,10 +14,8 @@
     - [5.3- Promoción](#53--promoción)
   - [6- Requirimentos](#6--requirimentos)
   - [7- Planificación](#7--planificación)
+      - [Calendario de organización de fases do proxecto:](#calendario-de-organización-de-fases-do-proxecto)
 
-> _EXPLICACIÓN_: Este documento será a páxina de explicación de en que consiste o teu proxecto. Coida a súa redacción con todo ou teu mimo. Elimina posteriormente todas as lineas "EXPLICACIÓN" cando creas finalizada a súa redacción.
-> Podes acompañar á redacción deste ficheiro con imaxes, pero non abuses deles.
-> Explica da mellor forma posible de en que consiste o proxecto é que ferramentas e linguaxes de programación empregarás.
 
 ## 1- Descrición do proxecto
 
@@ -44,7 +43,8 @@
 >- Licencia de software (Windows 11): 150 €
 >- Conexión a internet (fibra): 360 €
 >- Electricidad (durante tres meses): 564 €
->##### Total: 2374 €
+>- Gastos en publicidade: 300 €
+>##### Total: 2674 €
 >#### Financiación 
 >Líneas de financiación ICO
 >Subvención polo establecemento como traballador autónomo ou por conta propia. (máximo de 9000 €)
@@ -78,6 +78,9 @@
 > Os ingresos son recurrentes e predecibles, polo tanto facilita a elaboración dun posible plan financieiro ou inversións.
 > Permite centrarse en ofrecer o mellor servizo posible para os seus usuarios.
 
+#### Modelo canvas
+![Modelo canvas de la idea de negocio](/imaxes/Canvas.png)
+
 ### 5.1- Viabilidade
 
 #### 5.1.1- Viabilidade técnica
@@ -94,21 +97,21 @@
 > - Os beneficios do proxecto son superiores aos costes?
 > Partindo do calculo feito dos costes dos materiais durante un ano, a suma total dos gastos daría 2374 €. 
 > Orixinalmente, a suscripción ao mes para cada dietista oscilaría nos 20€. Xa que non se implementan aínda todas as funcionalidades que se teñen pensadas para a plataforma e os usuarios non poden gozar de todo o seu potencial.
-> Calcúlase que en Galicia, o número total de licenciados en dietética ou nutrición ronda os 1118 (Datos sacados do CODNG), con ter un só 10 clientes e cobrarlle 20 € ao mes a cada un, nun ano xa se terían sobrepasado os gastos.
-> gastos: 2374 €
-> 20 x 12 = 240 €
-> 240 x 10 = 2400 € ganados nun ano con 10 clientes. Quedaría nun beneficio de 26 €
-> Unha das opcións que tamén se pretende, é que á Consellería de Sanidade e o Servizo Galego de Saúde (Sergas) lle interese utilizar este servicio para utilizalo na sanidade pública. Entón o prezo para esta entidade nun comezo rondaría os 4000 € anuais e iría incrementando no tempo a medida que se foran mellorando cousas.
-> Beneficio de 1626 € 
+> Calcúlase que en Galicia, o número total de licenciados en dietética ou nutrición ronda os 1118 (Datos sacados do CODNG), con ter un só 12 clientes e cobrarlle 20 € ao mes a cada un, nun ano xa se terían sobrepasado os gastos.
+>- gastos: 2674 €
+>- 20 x 12 = 240 €
+> 240 x 12 = 2880 € ganados nun ano con 12 clientes. Quedaría nun beneficio de 206 €
+>- Unha das opcións que tamén se pretende, é que á Consellería de Sanidade e o Servizo Galego de Saúde (Sergas) lle interese utilizar este servicio para utilizalo na sanidade pública. Entón o prezo para esta entidade nun comezo rondaría os 4500 € anuais e iría incrementando no tempo a medida que se foran mellorando cousas.
+> Beneficio de 1620 € 
 > - As perdas poden cubrirse vía financiamento (por parte da administración pública, con subvencións, etc)?
 >Se as cousas non fóran ben, existirían axudas para xóvenes emprendedores ou financiamento para novas empresas con bases tecnolóxicas para axudar a impulsar a idea.
 
 ### 5.2- Competencia
 
 - Identificación da competencia, as súas características e a súa posición no mercado.
-  >Existen xa varias plataformas de nutrición moi parecidas á idea, algunhas delas son:
-  >MyFitnessPal, Lifesum e Cronometer. Estas tres aplicacións poñen a disposición do seu usuario ferramentas para levar un plan de alimentación, exercicios e hábitos saudábeis.
-  >Despois temos as empresas Nutrium, DietaPro e Tu Dietista Online. Céntranse na xestión de pacientes, creación de planes de alimentación personalizados e consultas online, respectivamente. Estas tres últimas conforman unha competencia moito máis marcada, pero o que quere facer esta idea é unificar todas esas características individuais de cada unha das anteriores empresas, para consolidar un servicio completo e de acordo ás necesidades dos profesionais e dos pacientes.
+>Existen xa varias plataformas de nutrición moi parecidas á idea, algunhas delas son:
+>MyFitnessPal, Lifesum e Cronometer. Estas tres aplicacións poñen a disposición do seu usuario ferramentas para levar un plan de alimentación, exercicios e hábitos saudábeis.
+>Despois temos as empresas Nutrium, DietaPro e Tu Dietista Online. Céntranse na xestión de pacientes, creación de plans de alimentación personalizados e consultas online, respectivamente. Estas tres últimas conforman unha competencia moito máis directa, pero o que se pretende coa idea deste proxecto é unificar todas esas características individuais de cada unha das anteriores empresas, para desenvolver un servicio completo e de acordo ás necesidades dos profesionais e dos pacientes.
 
 - Existencia de productos/servizos substitutivos.
 >Algúns productos sustitutivos poderían ser as consultas presenciais que existen na actualidade, xa que sobre todo para a xente maior ou que non esté moi familiarizada co mundo do internet e da tecnoloxía, será o método máis cómodo e que seguirán utilizando.
@@ -118,9 +121,9 @@
 
 >Para que a empresa despegase, nun principio elexiría dous principais métodos de promoción:
 >
-> As redes sociais serían a técnica principal da empresa para darse a coñecer por un motivo moi sinxelo, hoxe en día case todo o mundo dispón de polo menos unha rede social. Polo tanto coas redes tes un gran alcance para chegar ao público obxectivo.
+>- As redes sociais serían a técnica principal da empresa para darse a coñecer por un motivo moi sinxelo, hoxe en día case todo o mundo dispón de polo menos unha rede social. Polo tanto coas redes tes un gran alcance para chegar ao público obxectivo.
 >
-> Outra maneira de promocionarse que sería importante é o SEO (posicionamento web), xa que o proxecto é unha plataforma web, e se non aparece nos resultados de búsqueda do navegador como unha das primeiras para visitala, é coma se non existise.
+>- Outra maneira de promocionarse que sería importante é o SEO (posicionamento web), xa que o proxecto é unha plataforma web, e se non aparece nos resultados de búsqueda do navegador como unha das primeiras para visitala, é coma se non existise.
 
 ## 6- Requirimentos
 >
@@ -130,13 +133,8 @@
 
 ## 7- Planificación
 
-> _EXPLICACIÓN_: Inclúe un calendario co tempo estimado a adicar a cada fase do proxecto.
->
-> O proxecto estará formado polas seguintes fases:
->
-> - Estudo preliminar
-> - Análise
-> - Deseño
-> - Codificación e probas (debe ser a fase máis longa).
->
-> Debe facerse un calendario ou un diagrama de Gantt indicando, para cada fase, a data de inicio, a súa duración e breve descrición das tarefas a realizar.
+#### Calendario de organización de fases do proxecto:
+ 
+![Organización abril](/abril%202024.png)
+![Organización maio](/mayo%202024.png)
+![Organización xuño](/junio%202024.png)
