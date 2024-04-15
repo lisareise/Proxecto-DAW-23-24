@@ -102,8 +102,8 @@
 >- 20 x 12 = 240 €
 > 240 x 12 = 2880 € ganados nun ano con 12 clientes. Quedaría nun beneficio de 206 €
 >- Unha das opcións que tamén se pretende, é que á Consellería de Sanidade e o Servizo Galego de Saúde (Sergas) lle interese utilizar este servicio para utilizalo na sanidade pública. Entón o prezo para esta entidade nun comezo rondaría os 4500 € anuais e iría incrementando no tempo a medida que se foran mellorando cousas.
-> Beneficio de 1620 € 
-> - As perdas poden cubrirse vía financiamento (por parte da administración pública, con subvencións, etc)?
+>- Beneficio de 1620 € 
+>- As perdas poden cubrirse vía financiamento (por parte da administración pública, con subvencións, etc)?
 >Se as cousas non fóran ben, existirían axudas para xóvenes emprendedores ou financiamento para novas empresas con bases tecnolóxicas para axudar a impulsar a idea.
 
 ### 5.2- Competencia
@@ -127,14 +127,14 @@
 
 ## 6- Requirimentos
 >
-> - **Infraestructura:** software libre XAMPP, servidor web Apache, Base de datos MySQL phpmyAdmin, máquina virtual con software Ubuntu22.
-> - **Backend:**  linguaxe de programación PHP.
-> - **Frontend:** HTML, CSS, JavaScript: Framework7(swiper.js), API´s de análisis nutricional para facilitar o rexistro diario de inxesta de alimentos dos pacientes.
+> - **Infraestructura:** software libre XAMPP, servidor web Apache, máquina virtual con software Windows 10.
+> - **Backend:**  linguaxe de programación PHP, Base de datos MySQL --> phpmyAdmin.
+> - **Frontend:** Figma, HTML, CSS, JavaScript: swiper.js, comunicación asíncrona con AJAX, API´s de análisis nutricional para facilitar o rexistro diario de inxesta de alimentos dos pacientes.
 
 ## 7- Planificación
 
 #### Calendario de organización de fases do proxecto:
  
-![Organización abril](/abril%202024.png)
-![Organización maio](/mayo%202024.png)
-![Organización xuño](/junio%202024.png)
+![Organización abril](/imaxes/abril%202024.png)
+![Organización maio](/imaxes/mayo%202024.png)
+![Organización xuño](/imaxes/junio%202024.png)
