@@ -16,7 +16,7 @@
 ![Diagrama de casos de uso](/imaxes/diagramaUso.png)
 
 ## 3- Diagrama de Base de Datos
-
+![Modelo entidad relación](/imaxes/modelo-entidad-relación.png)
 > *EXPLICACIÓN:* Neste apartado incluiranse os diagramas relacionados coa Base de Datos:
 >
 > - Modelo Entidade/relación
