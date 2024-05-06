@@ -9,20 +9,12 @@
 
 ## 1- Diagrama da arquitectura
 
-> *EXPLICACIÓN:* Incluír os diagramas de arquitectura que representen de forma gráfica a aplicación, os seus compoñentes e a súa interrelación: front-end, back-end, bases de datos, nube, microservizos, etc.
-
 ## 2- Casos de uso
 
 ![Diagrama de casos de uso](/imaxes/diagramaUso.png)
 
 ## 3- Diagrama de Base de Datos
 ![Modelo entidad relación](/imaxes/modelo-entidad-relación.png)
-> *EXPLICACIÓN:* Neste apartado incluiranse os diagramas relacionados coa Base de Datos:
->
-> - Modelo Entidade/relación
-> - Modelo relacional
->
-> Pódese entregar a captura do phpMyAdmin se se emprega MariaDB como Modelo relacional.
 
 ## 4- Deseño de interface de usuarios
 
