@@ -12,6 +12,8 @@
     --bold2: 600;
     --theme-color:#fff;
     --primary-color:#9BA649;
+    --secondary-color:#f94643;
+    --light:#ecf0d3;
 }
 
 html{
@@ -20,7 +22,10 @@ html{
 
 h1,h2,h3,h4,h5,h6{
     font-family: var(--font2);
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+h2{
+    color: var(--secondary-color);
 }
 
 a{
@@ -28,8 +33,12 @@ a{
     color: currentColor;
 }
 
+section:not(:last-child){
+    margin-bottom: 3rem;
+}
+
 .container{
-    padding: 1rem 10%;
+    padding: 2.5rem 10%;
 }
 
 header{
@@ -47,6 +56,7 @@ header .container{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    padding: 1rem 10%;
 }
 
 .logo{
@@ -66,9 +76,31 @@ header .container{
     list-style: none;
 }
 
-article{
-    margin: 1rem 0;
+ article{
+    padding: 1rem 0;
+} 
+
+.img-cover{
+    width: 20rem;
 }
 
+.dual{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
+}
 
+@media screen and (max-width: 850px) {
+    .dual{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 1rem;
+    }
+}
 
+.light{
+    background-color: var(--light);
+}
