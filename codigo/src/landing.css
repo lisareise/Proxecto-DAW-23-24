@@ -1,0 +1,30 @@
+.servicios{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.servicio{
+    text-align: center;
+    width: 33%;
+    padding: 1rem;
+    background-color: var(--primary-color);
+
+}
+
+.contacto{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between ;
+    gap: 6rem;
+    align-items: center;
+}
+
+.button {
+    background-color: var(--primary-color);
+    text-align: center;
+    padding: 0.5rem;
+    border-radius: 8px;
+    flex: 0;
+}
