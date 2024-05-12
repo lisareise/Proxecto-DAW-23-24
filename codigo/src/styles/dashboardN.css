@@ -1,0 +1,122 @@
+header{
+    position: inherit;
+}
+
+.navbar{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0.5rem 0;
+    gap: 1rem;
+}
+
+.nav__item{
+    margin: 0 2rem;
+    text-transform: uppercase;
+}
+
+main{
+    display: flex;
+    flex-direction: row;
+}
+
+section{
+    width: 100%;
+}
+.menu__secundario{
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    align-items: center;
+    padding: 2rem 1rem;
+    z-index: 100;
+    background: var(--secondary-color);
+    height: auto;
+    gap: 4rem;
+}
+
+.perfil{
+    text-align: center;
+}
+
+.perfil img{
+    border-radius: 50%;
+    width: 150px;
+}
+
+.menu__secundario ul li{
+    margin: 2rem 1rem;
+}
+
+
+/*Main*/
+
+.content{
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(4, 200px);
+    gap: 1rem;
+}
+
+.welcome {
+    font-size: 2.5rem;
+    font-weight: bold;
+    font-style: italic;
+    margin: 0 auto;
+    align-self: center;
+}
+
+.pacientes{
+    margin: 1rem;
+    grid-area: 2 / 1 / 4 / 2;
+}
+
+.container__pacientes{
+    padding: 0 1rem;
+    background: var(--light);
+    border-radius: 12px;
+    grid-area: 4 / 2 / 5 / 3;
+} 
+
+.paciente{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 3rem;
+    padding: 1rem 0.5rem;
+}
+
+.paciente:not(.paciente:last-child){
+    border-bottom: 1px solid black;
+}
+
+.consultas{
+    margin: 1rem;
+    grid-area: 4 / 2 / 5 / 3;
+}
+
+.container__consultas{
+    padding: 0 1rem;
+    background: var(--light);
+    border-radius: 12px;
+}
+
+.consulta{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 3rem;
+    padding: 1rem 0.5rem;
+}
+
+.consulta:not(.consulta:last-child){
+    border-bottom: 1px solid black;
+}
+
+.content img{
+    grid-area: 1 / 2 / 3/ 3;
+    max-width: 100%;
+    margin: 0 auto;
+}
+/*Fin de main*/

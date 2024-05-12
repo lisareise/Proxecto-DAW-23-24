@@ -1,0 +1,83 @@
+header{
+    position:inherit;
+}
+
+h1{
+    font-size: 3rem;
+}
+
+.container{
+    padding-top: 0;
+}
+
+.dual{
+    justify-content: center;
+    gap: 8rem;
+}
+
+main{
+    display: flex;
+    align-items: center;
+}
+
+section{
+    margin: 0 auto;
+    width: 100%;
+}
+
+form p{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+}
+
+label{
+    font-size: 0.7rem;
+    font-weight: bold;
+    color:var(--secondary-color);
+    text-align: left;
+    margin-left: 0.2rem;
+    margin-bottom: 0.1rem;
+}
+
+input{
+    height: 40px;
+    border: 2px solid var(--secondary-color);
+    border-radius: 8px;
+    background-color: transparent;
+    padding: 0.5rem;
+}
+
+input[type="submit"] {
+    margin: 0 auto;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    background-color: var(--secondary-color);
+    transition: opacity 0.3s ease-out;
+}   
+
+input[type="submit"]:hover{
+    opacity: 0.75;
+}
+
+.login__form{
+    text-align: center;
+}
+
+@media screen and (max-width:1024px) {
+
+    .dual{
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .login__form{
+        order: 2;
+    }
+
+    img{
+        max-width: 300px;
+    }
+}

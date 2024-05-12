@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/e221cb5c78.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./src/js/header.js" defer></script>
+    <link rel="stylesheet" href="src/styles/main.css" />
+    <link rel="stylesheet" href="src/styles/dashboardN.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav class="navbar">
+          <ul class="nav-menu">
+            <li class="nav__item">
+              <a class="nav__link" href="./landing.html">Inicio</a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="./noticias.html">Noticias</a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="./contacto.html">Contacto</a>
+            </li>
+            <li class="nav__item login-nav">
+              <a class="nav__link" href="./login.html">Iniciar sesión</a>
+            </li>
+          </ul>
+          <a href="login.html" class="login"
+            ><i class="fa-regular fa-user"></i
+          ></a>
+          <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <aside class="menu__secundario">
+        <div class="perfil">
+          <img
+            src="src/images/fotoPerfilNutricionista.jpg"
+            alt="foto de perfil"
+          />
+          <span class="nombre-usuario" style="display: block"
+            >"nombre__usuario"</span
+          >
+        </div>
+        <ul>
+          <li><a href=""><i class="fa-solid fa-table-columns"></i> <span>dashboard</span></a></li>
+          <li><a href=""><i class="fa-solid fa-hospital-user"></i> <span>pacientes</span></a></li>
+          <li><i class="fa-solid fa-calendar-days"></i> <span>citas</span></a></li>
+        </ul>
+      </aside>
+      <section>
+        <article class="content">
+          <p class="welcome">¡Bienvenido, Dr. <span>Lisa Reise</span>!</p>
+          <img
+            src="src/images/calendarioProv.jpg"
+            alt="calendario provisional"
+          />
+          <div class="pacientes">
+            <p>Preview de pacientes</p>
+            <div class="container__pacientes">
+              <div class="paciente">
+                <p>Sofía García Martínez</p>
+                <p>12 mar 1995</p>
+              </div>
+              <div class="paciente">
+                <p>Sofía García Martínez</p>
+                <p>12 mar 1995</p>
+              </div>
+              <div class="paciente">
+                <p>Sofía García Martínez</p>
+                <p>12 mar 1995</p>
+              </div>
+              <div class="paciente">
+                <p>Sofía García Martínez</p>
+                <p>12 mar 1995</p>
+              </div>
+              <div class="paciente">
+                <p>Sofía García Martínez</p>
+                <p>12 mar 1995</p>
+              </div>
+              <div class="paciente">
+                <p>Sofía García Martínez</p>
+                <p>12 mar 1995</p>
+              </div>
+            </div>
+          </div>
+          <div class="consultas">
+            <p>Tus consultas de hoy</p>
+            <div class="container__consultas">
+              <div class="consulta">
+                <p>Miller Skyes</p>
+                <p>09:30 a.m</p>
+              </div>
+              <div class="consulta">
+                <p>Miller Skyes</p>
+                <p>09:30 a.m</p>
+              </div>
+              <div class="consulta">
+                <p>Miller Skyes</p>
+                <p>09:30 a.m</p>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+    <footer>
+      <article class="container__footer">
+        <div class="legal">
+          <p>Aviso legal</p>
+          <p>Política de privacidad y uso de cookies</p>
+        </div>
+        <span></span>
+        <div class="social">
+          <p><i class="fa-solid fa-feather-pointed"></i> Lisa Reise</p>
+          <div>
+            <p><i class="fa-brands fa-instagram"></i></p>
+            <p><i class="fa-brands fa-x-twitter"></i></p>
+          </div>
+        </div>
+      </article>
+    </footer>
+  </body>
+</html>

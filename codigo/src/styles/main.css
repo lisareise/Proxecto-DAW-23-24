@@ -1,0 +1,283 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Teachers:wght@600&display=swap');
+*, *:before, *:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --font1: "Roboto", sans-serif;
+    --bold1: 700;
+    --font2: "Teachers", sans-serif;
+    --bold2: 600;
+    --theme-color:#fff;
+    --primary-color:#a6bf5f;
+    --secondary-color:#ef8476;
+    --terciary-color:#f4d58f;
+    --footer-color:#dae6f5;
+    --light:#eedfdb;
+}
+
+html{
+    font-family: var(--font1);
+    font-size: 1.1rem;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+main{
+    flex:1;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family: var(--font2);
+    margin-bottom: 1rem;
+}
+
+h1{
+    font-size: 4rem;
+    color: var(--primary-color);
+}
+
+
+h2{
+    color: var(--secondary-color);
+}
+
+a{
+    text-decoration: none;
+    color: currentColor;
+}
+
+.nav-menu .nav__link:hover,.login:hover{
+    color: var(--primary-color);
+}
+
+/* section:not(:last-child){
+    margin-bottom: 3rem;
+} */
+
+/*Estilos header*/
+
+header{
+    width: 100%;
+    position: fixed;
+    z-index: 99;
+    background: rgb(255 255 255 / 24%);
+    backdrop-filter: blur(4px);
+}
+
+li{
+    list-style: none;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+}
+
+.hamburger{
+    display: none;
+}
+.login-nav{
+    display: none;
+}
+
+.bar{
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: #101010;
+}
+
+.nav-menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+}
+
+.nav__item{
+    margin: 0 3rem;
+    text-transform: uppercase;
+}
+
+.nav__link{
+    font-weight: 600;
+}
+
+.nav__link:hover{
+    color: #482ff7;
+}
+
+.nav__logo{
+    max-width: 50px;
+    max-height: 40px;
+}
+
+header .container{
+    padding: 1rem 12%;
+}
+
+@media only screen and (max-width:760px) {
+    .nav-menu{
+        position: fixed;
+        left: -100%;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        height: 91vh;
+        top: 85px;
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .login{
+        display: none;
+    }
+
+    .nav-menu.active{
+        left: 0;
+        height: 91vh;
+        top: 85px;
+        display: flex;
+        justify-content: flex-start;
+        background-color: var(--light);
+    }
+
+    .nav__item{
+        margin: 2rem 0;
+    }
+
+    .hamburger{
+        display: block;
+        cursor: pointer;
+        z-index: 100;
+    }
+
+    .login-nav{
+        display: inline;
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    /*Fin estilos header*/
+}
+
+
+.container{
+    padding: 2.5rem 12%;
+}
+
+.container__footer{
+    padding: 1rem 12%;
+}
+
+@media screen and (max-width:412px) {
+    .container{
+        padding: 2.5rem 8%;
+    }
+}
+
+
+ article{
+    padding: 1rem 0;
+} 
+
+.img-cover{
+    width: 50%;
+}
+
+.dual{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
+}
+
+@media screen and (max-width: 850px) {
+    .dual{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 1rem;
+    }
+    .img-cover{
+        width: 100%;
+    }
+}
+
+.light{
+    background-color: var(--light);
+}
+
+.dark {
+    background-color: var(--terciary-color);
+}
+
+footer{
+    display: flex;
+    flex-direction: column;
+    font-size: 0.8rem;
+    background: #dae6f5;
+}
+
+footer .legal {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 3rem;
+    
+}
+
+footer span:after{
+    display: block;
+    content: "";
+    width: 100%;
+    height: 1px;
+    margin: 1rem 0;
+    background-color: var(--theme-color);
+}
+
+footer .social{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.social div{
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+@media screen and (max-width:850px) {
+    footer .legal {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+    }
+}
