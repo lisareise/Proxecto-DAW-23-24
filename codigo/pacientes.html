@@ -9,7 +9,8 @@
     ></script>
     <script src="./src/js/header.js" defer></script>
     <link rel="stylesheet" href="src/styles/main.css" />
-    <link rel="stylesheet" href="src/styles/dashboardN.css" />
+    <link rel="stylesheet" href="src/styles/main-interfaz.css">
+    <link rel="stylesheet" href="src/styles/pacientes.css">
     <title>Document</title>
 </head>
 <body>
@@ -46,5 +47,82 @@
           </nav>
         </div>
       </header>
+      <main>
+        <aside class="menu__secundario">
+          <div class="perfil">
+            <img
+              src="src/images/fotoPerfilNutricionista.jpg"
+              alt="foto de perfil"
+            />
+            <span class="nombre-usuario" style="display: block"
+              >"nombre__usuario"</span
+            >
+          </div>
+          <ul class="menu--items">
+            <li class="perfil__movil"><i class="fa-solid fa-user"></i></li>
+            <li><a href="dashboard-nutri.html"><i class="fa-solid fa-table-columns"></i> <span>dashboard</span></a></li>
+            <li class="selected"><a href="pacientes.html"><i class="fa-solid fa-hospital-user"></i> <span>pacientes</span></a></li>
+            <li><a href=""><i class="fa-solid fa-calendar-days"></i> <span>citas</span></a></a></li>
+          </ul>
+        </aside>
+        <section>
+          <article class="content">
+            <h1>Tus pacientes</h1>
+            <form action="">
+              <input type="search" placeholder="Buscar un paciente" id="Buscador">
+            </form>
+            <table class="pacientes">
+              <thead>
+                <th class="nombre">nombre</th>
+                <th>edad</th>
+                <th class="nacimiento">nacimiento</th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="nombre">Sofía García Martínez</td>
+                  <td>22</td>
+                  <td  class="nacimiento">12 mar 1995</td>
+              </tr>
+              <tr>
+                <td class="nombre">Sofía García Martínez</td>
+                <td>22</td>
+                <td  class="nacimiento">12 mar 1995</td>
+              </tr>
+              <tr>
+                <td class="nombre">Sofía García Martínez</td>
+                <td>22</td>
+                <td  class="nacimiento">12 mar 1995</td>
+              </tr>
+              <tr>
+                <td class="nombre">Sofía García Martínez</td>
+                <td>22</td>
+                <td  class="nacimiento">12 mar 1995</td>
+              </tr>
+              </tbody>
+              
+            </table>
+            <div class="botones">
+              <a class="anhadir" href="nuevo-paciente.html"><span></span>añadir paciente</a>
+              <a class="eliminar" href=""><span></span>eliminar paciente</a>
+            </div>         
+          </article>
+        </section>
+      </main>
+      <footer>
+        <article class="container__footer">
+          <div class="legal">
+            <p>Aviso legal</p>
+            <p>Política de privacidad y uso de cookies</p>
+          </div>
+          <span></span>
+          <div class="social">
+            <p><i class="fa-solid fa-feather-pointed"></i> Lisa Reise</p>
+            <div>
+              <p><i class="fa-brands fa-instagram"></i></p>
+              <p><i class="fa-brands fa-x-twitter"></i></p>
+            </div>
+          </div>
+        </article>
+      </footer>
 </body>
 </html>

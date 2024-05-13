@@ -1,0 +1,99 @@
+header {
+  position: inherit;
+  background: #dae6f5;
+}
+
+h1 {
+  text-align: center;
+}
+
+.content {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+table {
+  width: 90%;
+}
+
+tbody,
+td,
+th,
+tr,
+thead {
+  border-color: var(--light);
+  border-style: solid;
+  border-width: 0;
+}
+
+td {
+  text-align: center;
+  padding: 1rem 0.5rem;
+}
+th {
+  margin-bottom: 0.3rem;
+  font-size: 0.8rem;
+}
+
+.nombre {
+  text-align: left;
+}
+
+.nacimiento {
+  text-align: right;
+}
+
+tbody {
+  background: var(--light);
+}
+
+.botones {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+
+.botones a {
+  padding: 0.6rem;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.anhadir {
+  background: var(--terciary-color);
+}
+
+.eliminar {
+  background: var(--secondary-color);
+}
+
+#Buscador {
+  background: url(https://cdn0.iconfinder.com/data/icons/slim-square-icons-basics/100/basics-19-32.png)
+    no-repeat 0px 7px;
+  background-size: 27px;
+  width: 700px;
+  border: transparent;
+  border-bottom: solid 1px #ccc;
+  padding: 10px 10px 10px 30px;
+  outline: none;
+  margin-bottom: 3rem;
+  font-size: 1rem;
+}
+
+@media screen and (max-width:1214px) {
+    #Buscador{
+        width: 400px;
+    }
+}
+
+@media screen and (max-width:570px){
+    #Buscador{
+        width: 250px;
+    }
+}

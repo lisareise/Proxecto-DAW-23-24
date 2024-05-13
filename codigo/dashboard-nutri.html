@@ -10,6 +10,7 @@
     <script src="./src/js/header.js" defer></script>
     <link rel="stylesheet" href="src/styles/main.css" />
     <link rel="stylesheet" href="src/styles/dashboardN.css" />
+    <link rel="stylesheet" href="src/styles/main-interfaz.css"> 
     <title>dashboard del profesional</title>
   </head>
   <body>
@@ -60,63 +61,67 @@
         <ul class="menu--items">
           <li class="perfil__movil"><i class="fa-solid fa-user"></i></li>
           <li class="selected"><a href=""><i class="fa-solid fa-table-columns"></i> <span>dashboard</span></a></li>
-          <li><a href=""><i class="fa-solid fa-hospital-user"></i> <span>pacientes</span></a></li>
-          <li><i class="fa-solid fa-calendar-days"></i> <span>citas</span></a></li>
+          <li><a href="pacientes.html"><i class="fa-solid fa-hospital-user"></i> <span>pacientes</span></a></li>
+          <li><a href=""><i class="fa-solid fa-calendar-days"></i> <span>citas</span></a></a></li>
         </ul>
       </aside>
       <section>
         <article class="content">
-          <p class="welcome">¡Bienvenido, Dr. <span>Lisa Reise</span>!</p>
+          <h1 class="welcome">¡Bienvenido, Dr. <span>Lisa Reise</span>!</h1>
           <img
             src="src/images/calendarioProv.jpg"
             alt="calendario provisional"
           />
-          <div class="pacientes">
-            <p>Preview de pacientes</p>
-            <div class="container__pacientes">
-              <div class="paciente">
-                <p>Sofía García Martínez</p>
-                <p>12 mar 1995</p>
-              </div>
-              <div class="paciente">
-                <p>Sofía García Martínez</p>
-                <p>12 mar 1995</p>
-              </div>
-              <div class="paciente">
-                <p>Sofía García Martínez</p>
-                <p>12 mar 1995</p>
-              </div>
-              <div class="paciente">
-                <p>Sofía García Martínez</p>
-                <p>12 mar 1995</p>
-              </div>
-              <div class="paciente">
-                <p>Sofía García Martínez</p>
-                <p>12 mar 1995</p>
-              </div>
-              <div class="paciente">
-                <p>Sofía García Martínez</p>
-                <p>12 mar 1995</p>
-              </div>
-            </div>
-          </div>
-          <div class="consultas">
-            <p>Tus consultas de hoy</p>
-            <div class="container__consultas">
-              <div class="consulta">
-                <p>Miller Skyes</p>
-                <p>09:30 a.m</p>
-              </div>
-              <div class="consulta">
-                <p>Miller Skyes</p>
-                <p>09:30 a.m</p>
-              </div>
-              <div class="consulta">
-                <p>Miller Skyes</p>
-                <p>09:30 a.m</p>
-              </div>
-            </div>
-          </div>
+            <table class="pacientes">
+              <thead>
+                <th>Preview de pacientes</th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Sofía García Martínez</td>
+                  <td>12 mar 1995</td>
+                </tr>
+                <tr>
+                  <td>Sofía García Martínez</td>
+                  <td>12 mar 1995</td>
+                </tr>
+                <tr>
+                  <td>Sofía García Martínez</td>
+                  <td>12 mar 1995</td>
+                </tr>
+                <tr>
+                  <td>Sofía García Martínez</td>
+                  <td>12 mar 1995</td>
+                </tr>
+                <tr>
+                  <td>Sofía García Martínez</td>
+                  <td>12 mar 1995</td>
+                </tr>
+                <tr>
+                  <td>Sofía García Martínez</td>
+                  <td>12 mar 1995</td>
+                </tr>
+              </tbody>
+            </table>
+          <table class="consultas">
+            <thead>
+              <th>Tus consultas de hoy</th>
+            </thead>
+              <tbody>
+                <tr>
+                  <td>Miller Skyes</td>
+                  <td>09:30 a.m</td>
+                </tr>
+                <tr>
+                  <td>Miller Skyes</td>
+                  <td>09:30 a.m</td>
+                </tr>
+                <tr>
+                  <td>Miller Skyes</td>
+                  <td>09:30 a.m</td>
+                </tr>
+              </tbody>
+          </table>         
         </article>
       </section>
     </main>
