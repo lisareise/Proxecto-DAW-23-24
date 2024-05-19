@@ -1,4 +1,3 @@
-
 /*Main*/
 
 .content {
@@ -18,8 +17,11 @@
 }
 
 .pacientes {
-  margin: 1rem;
   grid-area: 2 / 1 / 4 / 2;
+}
+
+table{
+  width: 100%;
 }
 
 thead{
@@ -40,10 +42,11 @@ td{
 }
 
 .consultas {
-  margin: 1rem;
   grid-area: 4 / 2 / 5 / 3;
   position: relative;
   bottom: 50px;
+  border-collapse: separate;
+  border-spacing: 0;
 }
 
 .content img {
@@ -52,6 +55,26 @@ td{
   margin: 0 auto;
   position: relative;
 }
+
+.table-wrapper{
+  width: 100%;
+  height: 300px;
+  overflow: auto;
+}
+
+.table-wrapper table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.table-wrapper table thead {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  width: 100%;
+  
+}
+
 /*Fin de main*/
 
 @media screen and (max-width: 1750px) {
@@ -78,7 +101,7 @@ td{
         position: inherit;
     }
 
-    .pacientes{
+    .table-wrapper{
         order:3;
     }
 
@@ -87,3 +110,8 @@ td{
     }
 }
 
+@media screen and (max-width:750px) {
+  .table-wrapper{
+    height: 200px;
+  }
+}

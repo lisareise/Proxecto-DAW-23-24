@@ -41,6 +41,12 @@ main {
   text-align: center;
 }
 
+.nombre-usuario{
+  font-size: 0.8rem;
+  font-style: italic;
+  font-weight: bold;
+}
+
 .perfil img {
   border-radius: 50%;
   width: 150px;

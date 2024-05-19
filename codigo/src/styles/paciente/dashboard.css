@@ -1,0 +1,105 @@
+.content {
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(3, 200px);
+  gap: 1.5rem;
+}
+
+table {
+  width: 100%;
+}
+
+td {
+  padding: 1rem 0.5rem;
+}
+
+tbody {
+  background: var(--light);
+}
+
+tr td:last-child {
+  text-align: right;
+}
+
+th {
+  text-align: left;
+}
+
+.table-wrapper {
+  width: 100%;
+  height: 300px;
+  overflow: auto;
+}
+
+.table-wrapper table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.table-wrapper table thead {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  width: 100%;
+}
+
+.ficheros {
+  grid-area: 2 / 2 /3 /3;
+}
+
+.grafica {
+  grid-area: 3 / 1 / 4 /2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  bottom: 20px;
+}
+
+.grafica p {
+  font-weight: bold;
+}
+.grafica img {
+  width: 500px;
+}
+
+.datos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.datos button {
+  padding: 0.6rem;
+  border-radius: 8px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  background: var(--terciary-color);
+  transition: opacity 0.3s ease-out;
+  margin-top: 0.3rem;
+  width: 100px;
+}
+
+.datos button:hover{
+    opacity: 0.75;
+}
+
+@media screen and (max-width: 1000px) {
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .grafica {
+    position: inherit;
+  }
+}
+
+@media screen and (max-width: 500px) {
+    .grafica img {
+      width: 350px;
+    }
+}

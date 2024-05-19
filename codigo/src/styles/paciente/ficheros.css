@@ -1,23 +1,13 @@
-header {
-  position: inherit;
-  background: #dae6f5;
-}
-
-h1 {
-  text-align: center;
-}
-
 .content {
-  padding: 2rem;
+  padding: 2rem 4rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  gap: 2rem;
+  gap: 1.5rem;
 }
-
 table {
-  width: 90%;
+  width: 100%;
 }
 
 tbody,
@@ -30,47 +20,42 @@ thead {
   border-width: 0;
 }
 
-td {
-  text-align: center;
-  padding: 1rem 0.5rem;
-}
-th {
-  margin-bottom: 0.3rem;
-  font-size: 0.8rem;
-}
-
-.nombre {
-  text-align: left;
-}
-
-.nacimiento {
-  text-align: right;
-}
-
 tbody {
   background: var(--light);
 }
 
-.botones {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 3rem;
+td {
+  padding: 1rem 0.5rem;
 }
 
-.botones a {
-  padding: 0.6rem;
-  border-radius: 8px;
-  font-weight: bold;
+td:last-child{
+    text-align: right;
 }
 
-.anhadir {
-  background: var(--terciary-color);
+th {
+  margin-bottom: 0.3rem;
+  font-size: 0.8rem;
+  text-align: left;
+}
+th:last-child{
+    text-align: right;
 }
 
-.eliminar {
-  background: var(--secondary-color);
+.table-wrapper {
+  width: 100%;
+  height: 500px;
+  overflow: auto;
+}
+
+.table-wrapper table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.table-wrapper table thead {
+  position: sticky;
+  top: 0;
+  background: #fff;
 }
 
 #Buscador {
@@ -95,5 +80,20 @@ tbody {
 @media screen and (max-width:570px){
     #Buscador{
         width: 250px;
+        margin-bottom: 1rem;
+    }
+
+    h1{
+      font-size: 2.5rem;
     }
 }
+
+@media screen and (max-width:750px) {
+    .table-wrapper{
+      height: 350px;
+    }
+  
+    .content{
+      padding:2rem 2rem;
+    }
+  }

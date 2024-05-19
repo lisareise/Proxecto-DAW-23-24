@@ -10,8 +10,8 @@
     <script src="./src/js/header.js" defer></script>
     <link rel="stylesheet" href="src/styles/main.css" />
     <link rel="stylesheet" href="src/styles/main-interfaz.css">
-    <link rel="stylesheet" href="src/styles/pacientes.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="src/styles/nutricionista/pacientes.css">
+    <title>Pacientes</title>
 </head>
 <body>
     <header>
@@ -71,7 +71,8 @@
             <form action="">
               <input type="search" placeholder="Buscar un paciente" id="Buscador">
             </form>
-            <table class="pacientes">
+            <div class="table-wrapper">
+              <table class="pacientes">
               <thead>
                 <th class="nombre">nombre</th>
                 <th>edad</th>
@@ -98,15 +99,90 @@
                 <td>22</td>
                 <td  class="nacimiento">12 mar 1995</td>
               </tr>
+              <tr>
+                <td class="nombre">Sofía García Martínez</td>
+                <td>22</td>
+                <td  class="nacimiento">12 mar 1995</td>
+              </tr>
+              <tr>
+                <td class="nombre">Sofía García Martínez</td>
+                <td>22</td>
+                <td  class="nacimiento">12 mar 1995</td>
+              </tr>
+              <tr>
+                <td class="nombre">Sofía García Martínez</td>
+                <td>22</td>
+                <td  class="nacimiento">12 mar 1995</td>
+              </tr>
+              <tr>
+                <td class="nombre">Sofía García Martínez</td>
+                <td>22</td>
+                <td  class="nacimiento">12 mar 1995</td>
+              </tr>
+              <tr>
+                <td class="nombre">Sofía García Martínez</td>
+                <td>22</td>
+                <td  class="nacimiento">12 mar 1995</td>
+              </tr>
+              <tr>
+                <td class="nombre">Sofía García Martínez</td>
+                <td>22</td>
+                <td  class="nacimiento">12 mar 1995</td>
+              </tr>
+              <tr>
+                <td class="nombre">Sofía García Martínez</td>
+                <td>22</td>
+                <td  class="nacimiento">12 mar 1995</td>
+              </tr>
               </tbody>
               
             </table>
+            </div>            
             <div class="botones">
-              <a class="anhadir" href="nuevo-paciente.html"><span></span>añadir paciente</a>
-              <a class="eliminar" href=""><span></span>eliminar paciente</a>
+              <button onclick="window.modal.showModal();" class="anhadir" href="nuevo-paciente.html">añadir paciente</button>
+              <button class="eliminar" href="">eliminar paciente</button>
             </div>         
           </article>
         </section>
+        
+         <dialog id="modal">
+          <h3>Datos del nuevo paciente</h3>
+          <form method="post">  
+            <p>
+                        
+              <input type="text" name="new__user" id="new__user" placeholder="nombre completo">
+            </p>
+            <p>
+              
+              <input type="number" name="user__altura" id="user__altura" placeholder="altura (cm)">
+            </p>
+            <p>
+              
+              <input type="number" name="user__peso" id="user__peso" placeholder="peso (kg)">
+            </p>
+            <p>
+             <label for="user__fnac">fecha de nacimiento</label>
+              <input type="date" name="user__fnac" id="user__fnac">
+            </p>
+            <p>
+              
+              <input type="email" name="user__email" id="user__email" placeholder="email@paciente.com">
+            </p>
+            <p>
+             
+              <input type="text" name="user__tel" id="user__tel" placeholder="teléfono">
+            </p>
+            <p>
+              
+              <input type="text" name="user__direccion" id="user__direccion" placeholder="dirección">
+            </p>
+              <p class="buttons">
+                <input type="reset" onclick="window.modal.close();" value="Cancelar">
+                <input type="submit" onclick="window.modal.close();" value="Confirmar">
+              </p>
+          </form>                
+        </dialog>
+
       </main>
       <footer>
         <article class="container__footer">
