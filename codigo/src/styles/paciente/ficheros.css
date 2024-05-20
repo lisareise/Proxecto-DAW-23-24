@@ -90,7 +90,7 @@ th:last-child{
 
 @media screen and (max-width:750px) {
     .table-wrapper{
-      height: 350px;
+      height: 250px;
     }
   
     .content{
