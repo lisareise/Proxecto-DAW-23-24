@@ -1,13 +1,10 @@
-header{
-    position:inherit;
-}
 
 h1{
     font-size: 3rem;
 }
 
 .container{
-    padding-top: 0;
+    padding-top: 90px;
 }
 
 .dual{

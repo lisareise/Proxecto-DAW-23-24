@@ -98,7 +98,6 @@ dialog input[type="reset"]:hover {
 /*fin ventana modal*/
 
 header {
-  position: inherit;
   background: #dae6f5;
 }
 
@@ -107,7 +106,7 @@ h1 {
 }
 
 .content {
-  padding: 2rem 4rem;
+  padding: 90px 4rem 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -163,6 +162,13 @@ tbody {
   border-radius: 8px;
   font-weight: bold;
   border: none;
+  cursor: pointer;
+  transition:opacity 0.3s ease-out;
+  margin-bottom: 1rem;
+}
+
+.botones button:hover{
+  opacity: 0.75;
 }
 
 .anhadir {
@@ -223,11 +229,11 @@ tbody {
 
 @media screen and (max-width:750px) {
   .table-wrapper{
-    height: 250px;
+    height: 460px;
   }
 
   .content{
-    padding:2rem 2rem;
+    padding:100px 2rem 0;
   }
 }
 

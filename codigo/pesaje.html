@@ -8,8 +8,8 @@
     <script src="./src/js/header.js" defer></script>
     <link rel="stylesheet" href="src/styles/main.css" />
     <link rel="stylesheet" href="src/styles/main-interfaz.css">
-    <link rel="stylesheet" href="src/styles/paciente/dashboard.css">
-    <title>Dashboard del paciente</title>
+    <link rel="stylesheet" href="src/styles/paciente/pesaje.css">   
+    <title>Tus pesajes</title>
 </head>
 
 <body>
@@ -48,93 +48,79 @@
             </div>
             <ul class="menu--items">
                 <li class="perfil__movil"><i class="fa-solid fa-user"></i></li>
-                <li class="selected" ><a href="dashboard-nutri.html"><i class="fa-solid fa-table-columns"></i> <span>dashboard</span></a>
+                <li><a href="dashboard-paciente.html"><i class="fa-solid fa-table-columns"></i>
+                        <span>dashboard</span></a>
                 </li>
                 <li><a href="ficheros.html"><i class="fa-solid fa-file-invoice"></i>
                         <span>ficheros</span></a></li>
-                <li><a href="pesaje.html"><i class="fa-solid fa-weight-hanging"></i> <span>pesaje</span></a></a></li>
+                <li class="selected"><a href="pesaje.html"><i class="fa-solid fa-weight-hanging"></i>
+                        <span>pesaje</span></a></a></li>
                 <li><a href="notificaciones.html"><i class="fa-solid fa-envelope"></i> <span>notificaciones</span></a></li>
             </ul>
         </aside>
         <section>
             <article class="content">
-                <div class="datos">
+                <h1>Tus pesos</h1>
+                <h3>AÑO 2024</h3>
+                <form action="">
                     <table>
                         <thead>
-                            <th rowspan="2">datos personales</th>
+                            <th>mes</th>
+                            <th>peso (en kg)</th>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Altura</td>
-                                <td>160 cm</td>
+                                <td>enero</td>
+                                <td><input type="number"></td>
                             </tr>
                             <tr>
-                                <td>Fecha de nacimiento</td>
-                                <td>14 mar 2003</td>
+                                <td>febrero</td>
+                                <td><input type="number"></td>
                             </tr>
                             <tr>
-                                <td>Dirección</td>
-                                <td>calle Balea 20b, O Grove</td>
+                                <td>marzo</td>
+                                <td><input type="number"></td>
                             </tr>
                             <tr>
-                                <td>E-mail</td>
-                                <td>nombre@gmail.com</td>
+                                <td>abril</td>
+                                <td><input type="number"></td>
                             </tr>
                             <tr>
-                                <td>Teléfono</td>
-                                <td>648 053 711</td>
+                                <td>mayo</td>
+                                <td><input type="number"></td>
+                            </tr>
+                            <tr>
+                                <td>junio</td>
+                                <td><input type="number"></td>
+                            </tr>
+                            <tr>
+                                <td>julio</td>
+                                <td><input type="number"></td>
+                            </tr>
+                            <tr>
+                                <td>agosto</td>
+                                <td><input type="number"></td>
+                            </tr>
+                            <tr>
+                                <td>septiembre</td>
+                                <td><input type="number"></td>
+                            </tr>
+                            <tr>
+                                <td>octubre</td>
+                                <td><input type="number"></td>
+                            </tr>
+                            <tr>
+                                <td>noviembre</td>
+                                <td><input type="number"></td>
+                            </tr>
+                            <tr>
+                                <td>diciembre</td>
+                                <td><input type="number"></td>
                             </tr>
                         </tbody>
                     </table>
-                    <button>Editar datos</button>
-                </div>
-                <div class="ficheros">
-                    <div class="table-wrapper">
-                        <table>
-                            <thead>
-                                <th colspan="2">preview de ficheros</th>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>fichero 1</td>
-                                    <td>4 dic 2023</td>
-                                </tr>
-                                <tr>
-                                    <td>fichero 1</td>
-                                    <td>4 dic 2023</td>
-                                </tr>
-                                <tr>
-                                    <td>fichero 1</td>
-                                    <td>4 dic 2023</td>
-                                </tr>
-                                <tr>
-                                    <td>fichero 1</td>
-                                    <td>4 dic 2023</td>
-                                </tr>
-                                <tr>
-                                    <td>fichero 1</td>
-                                    <td>4 dic 2023</td>
-                                </tr>
-                                <tr>
-                                    <td>fichero 1</td>
-                                    <td>4 dic 2023</td>
-                                </tr>
-                                <tr>
-                                    <td>fichero 1</td>
-                                    <td>4 dic 2023</td>
-                                </tr>
-                                <tr>
-                                    <td>fichero 1</td>
-                                    <td>4 dic 2023</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="grafica">
-                    <p>evolución de peso</p>
-                    <img src="src/images/ej-grafica-peso.webp" alt="">
-                </div>
+                    <input type="submit" value="introducir peso">
+                </form>
             </article>
         </section>
     </main>
