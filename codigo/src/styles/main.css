@@ -66,7 +66,9 @@ a{
 
 header{
     width: 100%;
-    position: fixed;
+    position: sticky;
+    top: 0;
+    height: 85px;
     z-index: 99;
     background: rgb(255 255 255 / 24%);
     backdrop-filter: blur(4px);
@@ -135,15 +137,18 @@ header .container{
     }
     .nav-menu{
         position: fixed;
+        top: 85px; 
         left: -100%;
+        right: 0;
+        bottom: 0;
         flex-direction: column;
         width: 100%;
         text-align: center;
         transition: 0.3s;
-        height: 91vh;
-        top: 85px;
+        background-color: var(--light);
         display: flex;
         justify-content: flex-start;
+        height: 100vh;
     }
 
     .login{
@@ -151,12 +156,11 @@ header .container{
     }
 
     .nav-menu.active{
-        left: 0;
-        height: 91vh;
-        top: 85px;
-        display: flex;
-        justify-content: flex-start;
-        background-color: var(--light);
+        left: 0; 
+    }
+
+    .sinScroll{
+        overflow-y: hidden;
     }
 
     .nav__item{
