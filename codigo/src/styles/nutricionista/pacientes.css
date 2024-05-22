@@ -6,7 +6,7 @@ dialog {
   background-color: #fafafa;
   margin: 0 auto;
   position: absolute;
-  top: 25%;
+  top: 5%;
   text-align: center;
   animation: aparecer 0.5s ease-in-out;
   -o-animation: aparecer 0.5s ease-in-out;
@@ -16,7 +16,7 @@ dialog {
 
 @media screen and (max-width: 500px) {
   dialog {
-    top: 18%;
+    top: 5%;
   }
 }
 
@@ -58,7 +58,7 @@ input[type="reset"] {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: 0.3rem;
 }
 
 form p {
@@ -129,9 +129,16 @@ thead {
 }
 
 td {
-  text-align: center;
   padding: 1rem 0.5rem;
 }
+tr td:nth-child(even){
+  text-align: center;
+}
+
+tr td:last-child{
+  text-align: right;
+}
+
 th {
   margin-bottom: 0.3rem;
   font-size: 0.8rem;
@@ -165,6 +172,7 @@ tbody {
   cursor: pointer;
   transition:opacity 0.3s ease-out;
   margin-bottom: 1rem;
+  margin-top: 0.5rem;
 }
 
 .botones button:hover{

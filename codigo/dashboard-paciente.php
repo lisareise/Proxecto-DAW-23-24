@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,7 +47,7 @@
         <aside class="menu__secundario">
             <div class="perfil">
                 <img src="src/images/fotoPerfilNutricionista.jpg" alt="foto de perfil" />
-                <span class="nombre-usuario" style="display: block">"nombre__usuario"</span>
+                <span class="nombre-usuario" style="display: block">@<?php echo $_SESSION['usuario']?></span>
             </div>
             <ul class="menu--items">
                 <li class="perfil__movil"><i class="fa-solid fa-user"></i></li>
