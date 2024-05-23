@@ -1,5 +1,9 @@
 <?php
 session_start();
+
+if (!isset($_SESSION['usuario'])) {
+  header('Location: login.php');
+}
 $conexion = new mysqli('localhost', 'root', '', 'nutrismart');
 
 $sql = "SELECT SUBSTRING_INDEX(nombre_completo,' ',1) AS nombre,
@@ -116,51 +120,43 @@ $result = $conexion->query($sql);
         </div>
       </article>
     </section>
-
     <dialog id="modal">
       <h3>Datos del nuevo paciente</h3>
-      <form method="post" action="crear-paciente.php">
+      <form id="registroForm" method="post" action="crear-paciente.php">
         <p>
-          <?php if (isset($_SESSION['errors']['new_user'])): ?>
-          <p style="color: red; font-size:0.7rem;"><?php echo $_SESSION['errors']['new_user']; ?></p>
-        <?php endif; ?>
+
+        <div id="new_user" class="error"></div>
         <input type="text" name="new_user" id="new_user" placeholder="nombre completo">
         </p>
         <p>
-          <?php if (isset($_SESSION['errors']['user_altura'])): ?>
-          <p style="color: red; font-size:0.7rem;"><?php echo $_SESSION['errors']['user_altura']; ?></p>
-        <?php endif; ?>
+
+        <div id="user_altura" class="error"></div>
         <input type="text" name="user_altura" id="user_altura" placeholder="altura (cm)">
         </p>
         <p>
-          <?php if (isset($_SESSION['errors']['user_peso'])): ?>
-          <p style="color: red; font-size:0.7rem;"><?php echo $_SESSION['errors']['user_peso']; ?></p>
-        <?php endif; ?>
+
+        <div id="user_peso" class="error"></div>
         <input type="text" name="user_peso" id="user_peso" placeholder="peso (kg)">
         </p>
         <p>
-          <?php if (isset($_SESSION['errors']['user_fnac'])): ?>
-          <p style="color: red; font-size:0.7rem;"><?php echo $_SESSION['errors']['user_fnac']; ?></p>
-        <?php endif; ?>
+
+        <div id="user_fnac" class="error"></div>
         <label for="user_fnac">fecha de nacimiento</label>
         <input type="date" name="user_fnac" id="user_fnac">
         </p>
         <p>
-          <?php if (isset($_SESSION['errors']['user_email'])): ?>
-          <p style="color: red; font-size:0.7rem;"><?php echo $_SESSION['errors']['user_email']; ?></p>
-        <?php endif; ?>
-        <input type="email" name="user_email" id="user_email" placeholder="email@paciente.com">
+
+        <div id="user_email" class="error"></div>
+        <input type="text" name="user_email" id="user_email" placeholder="email@paciente.com">
         </p>
         <p>
-          <?php if (isset($_SESSION['errors']['user_tel'])): ?>
-          <p style="color: red; font-size:0.7rem;"><?php echo $_SESSION['errors']['user_tel']; ?></p>
-        <?php endif; ?>
+
+        <div id="user_tel" class="error"></div>
         <input type="text" name="user_tel" id="user_tel" placeholder="teléfono">
         </p>
         <p>
-          <?php if (isset($_SESSION['errors']['user_direccion'])): ?>
-          <p style="color: red; font-size:0.7rem;"><?php echo $_SESSION['errors']['user_direccion']; ?></p>
-        <?php endif; ?>
+
+        <div id="user_direccion" class="error"></div>
         <input type="text" name="user_direccion" id="user_direccion" placeholder="dirección">
         </p>
         <p class="buttons">
@@ -169,10 +165,6 @@ $result = $conexion->query($sql);
         </p>
       </form>
       <button onclick="window.modal.close();">cerrar</button>
-      <?php
-      // Limpiar los errores después de mostrarlos
-      unset($_SESSION['errors']);
-      ?>
     </dialog>
   </main>
   <footer>
@@ -191,6 +183,40 @@ $result = $conexion->query($sql);
       </div>
     </article>
   </footer>
-</body>
+  <script>
+    const errorContainer = document.getElementById('errorContainer');
+    registroForm.addEventListener('submit', function (event) {
+      event.preventDefault(); // Prevenir el comportamiento por defecto del submit de la ventana modal
 
+      // Limpiar mensajes de error anteriores
+      document.querySelectorAll('.error').forEach(el => el.textContent = '');
+
+      const formData = new FormData(registroForm);
+
+      fetch('crear-paciente.php', {
+        method: 'POST',
+        body: formData
+      })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            alert(data.success);
+            myModal.close();
+          } else {
+            // Mostrar los errores en el lugar correspondiente
+            for (const [field, message] of Object.entries(data)) {
+              const errorElement = document.getElementById(`${field}`);
+              if (errorElement) {
+                errorElement.textContent = message;
+              }
+            }
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    });
+
+  </script>
+</body>
 </html>

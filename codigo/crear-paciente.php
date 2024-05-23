@@ -21,7 +21,7 @@ function obligatorios()
         $errors["user_email"] = "Introduce el e-mail del paciente.";
     }
     if (empty($_POST["user_tel"])) {
-        $errors["user_tel"] = "Introduce la fecha de nacimiento.";
+        $errors["user_tel"] = "Introduce un numero de telefono";
     }
     if (empty($_POST["user_direccion"])) {
         $errors["user_direccion"] = "Introduce una dirección.";
@@ -40,7 +40,7 @@ function validar()
             $errors["user_altura"] = "Introduce una altura válida.";
         }
 
-        if (!empty($_POST["user_peso"]) && !is_float($_POST["user_peso"])) {
+        if (!empty($_POST["user_peso"]) && !is_numeric($_POST["user_peso"])) {
             $errors["user_peso"] = "Introduce un peso válido.";
         }
 
@@ -63,8 +63,6 @@ function validar()
 $errors = array_merge(obligatorios(), validar());
 
 if(!empty($errors)){
-    $_SESSION['errors'] = $errors;
-    header('Location: pacientes.php');
-    exit();
+    echo json_encode($errors);
 }
 ?>
