@@ -1,16 +1,10 @@
 <?php
 session_start();
-
+$conexion = new mysqli('localhost', 'root', '', 'nutrismart');
 if (!isset($_SESSION['usuario'])) {
   header('Location: login.php');
 }
-$conexion = new mysqli('localhost', 'root', '', 'nutrismart');
 
-$sql = "SELECT SUBSTRING_INDEX(nombre_completo,' ',1) AS nombre,
-  SUBSTRING_INDEX(SUBSTRING_INDEX(nombre_completo,' ',2),' ',-1) AS apellido
-  FROM nutricionista WHERE user_nutri ='$_SESSION[usuario]'";
-
-$result = $conexion->query($sql);
 ?>
 
 <!DOCTYPE html>
@@ -71,7 +65,7 @@ $result = $conexion->query($sql);
     </aside>
     <section>
       <?php
-      $idNutri = "SELECT p.nombre_completo, 
+      $idNutri = "SELECT p.id_paciente, p.nombre_completo, 
             TIMESTAMPDIFF(YEAR,fecha_nac, CURDATE()) - (DATE_FORMAT(CURDATE(),'%m%d') < DATE_FORMAT(fecha_nac,'%m%d')) AS edad,
             p.fecha_nac
             FROM paciente p 
@@ -98,14 +92,14 @@ $result = $conexion->query($sql);
                 while ($fila = $residNutri->fetch_array()) {
 
                   echo "<tr>";
-                  echo "<td>" . $fila[0] . "</td>";
-                  echo "<td>" . $fila[1] . "</td>";
-                  echo "<td>" . $fila[2] . "</td>";
+                  echo "<td><a href='ficha-paciente.php?id_paciente=".$fila[0]."'>" . $fila[1] . "</a></td>";
+                  echo "<td>". $fila[2] . "</td>";
+                  echo "<td>" . $fila[3] . "</td>";
                   echo "</tr>";
                 }
               } else {
                 echo "<tr>";
-                echo "<td colspan='2' style='text-align:center;'>Aún no tiene pacientes</td>";
+                echo "<td colspan='3' style='text-align:center;'>Aún no tiene pacientes</td>";
                 echo "</tr>";
               }
               ?>
@@ -122,49 +116,49 @@ $result = $conexion->query($sql);
     </section>
     <dialog id="modal">
       <h3>Datos del nuevo paciente</h3>
-      <form id="registroForm" method="post" action="crear-paciente.php">
+      <form id="registroForm" method="POST" action="crear-paciente.php">
         <p>
 
         <div id="new_user" class="error"></div>
-        <input type="text" name="new_user" id="new_user" placeholder="nombre completo">
+        <input type="text" name="new_user" id="new_user_input" placeholder="nombre completo">
         </p>
         <p>
 
         <div id="user_altura" class="error"></div>
-        <input type="text" name="user_altura" id="user_altura" placeholder="altura (cm)">
+        <input type="text" name="user_altura" id="user_altura_input" placeholder="altura (cm)">
         </p>
         <p>
 
         <div id="user_peso" class="error"></div>
-        <input type="text" name="user_peso" id="user_peso" placeholder="peso (kg)">
+        <input type="text" name="user_peso" id="user_peso_input" placeholder="peso (kg)">
         </p>
         <p>
 
         <div id="user_fnac" class="error"></div>
         <label for="user_fnac">fecha de nacimiento</label>
-        <input type="date" name="user_fnac" id="user_fnac">
+        <input type="date" name="user_fnac" id="user_fnac_input">
         </p>
         <p>
 
         <div id="user_email" class="error"></div>
-        <input type="text" name="user_email" id="user_email" placeholder="email@paciente.com">
+        <input type="text" name="user_email" id="user_email_input" placeholder="email@paciente.com">
         </p>
         <p>
 
         <div id="user_tel" class="error"></div>
-        <input type="text" name="user_tel" id="user_tel" placeholder="teléfono">
+        <input type="text" name="user_tel" id="user_tel_input" placeholder="teléfono">
         </p>
         <p>
 
         <div id="user_direccion" class="error"></div>
-        <input type="text" name="user_direccion" id="user_direccion" placeholder="dirección">
+        <input type="text" name="user_direccion" id="user_direccion_input" placeholder="dirección">
         </p>
         <p class="buttons">
-          <input type="reset" value="Cancelar">
+          <input type="reset" value="Borrar datos">
           <input type="submit" value="Confirmar">
         </p>
       </form>
-      <button onclick="window.modal.close();">cerrar</button>
+      <button type="button" id="closeModalButton"><i class="fa-solid fa-x"></i></button>
     </dialog>
   </main>
   <footer>
@@ -184,39 +178,72 @@ $result = $conexion->query($sql);
     </article>
   </footer>
   <script>
-    const errorContainer = document.getElementById('errorContainer');
-    registroForm.addEventListener('submit', function (event) {
-      event.preventDefault(); // Prevenir el comportamiento por defecto del submit de la ventana modal
+        document.addEventListener('DOMContentLoaded', function () {
+            
+            const closeModalButton = document.getElementById('closeModalButton');
+            const myModal = document.getElementById('modal');
+            const registroForm = document.getElementById('registroForm');
 
-      // Limpiar mensajes de error anteriores
-      document.querySelectorAll('.error').forEach(el => el.textContent = '');
+            //Lo cierro con esta funcion para controlar que limpie los mensajes de error después de cerrarlo.
+            closeModalButton.addEventListener('click', function () {
+                // Limpiar mensajes de error anteriores
+                document.querySelectorAll('.error').forEach(el => el.textContent = '');
+                // Restablecer los valores del formulario
+                registroForm.reset();
+                myModal.close();
+            });
 
-      const formData = new FormData(registroForm);
+            registroForm.addEventListener('submit', function (event) {
+                event.preventDefault(); // Prevenir el comportamiento por defecto del submit
 
-      fetch('crear-paciente.php', {
-        method: 'POST',
-        body: formData
-      })
-        .then(response => response.json())
-        .then(data => {
-          if (data.success) {
-            alert(data.success);
-            myModal.close();
-          } else {
-            // Mostrar los errores en el lugar correspondiente
-            for (const [field, message] of Object.entries(data)) {
-              const errorElement = document.getElementById(`${field}`);
-              if (errorElement) {
-                errorElement.textContent = message;
-              }
-            }
-          }
-        })
-        .catch(error => {
-          console.error('Error:', error);
+                // Limpiar mensajes de error anteriores
+                document.querySelectorAll('.error').forEach(el => el.textContent = '');
+                
+                const name_value = document.getElementById('new_user_input').value;
+                const altura_value = document.getElementById('user_altura_input').value;
+                const peso_value = document.getElementById('user_peso_input').value;
+                const fnac_value = document.getElementById('user_fnac_input').value;
+                const email_value = document.getElementById('user_email_input').value;
+                const tel_value = document.getElementById('user_tel_input').value;
+                const direccion_value = document.getElementById('user_direccion_input').value;               
+                fetch('crear-paciente.php', {
+                    method: 'POST',
+                    headers:{
+                      'Content-Type': 'application/json',
+                      'Accept': 'application/json'
+                    },
+                    body: JSON.stringify( {
+                      'new_user' : name_value,
+                      'user_altura' : altura_value,
+                      'user_peso' : peso_value,
+                      'user_fnac' : fnac_value,
+                      'user_email' : email_value,
+                      'user_tel' : tel_value,
+                      'user_direccion' :direccion_value
+                    })
+                })
+                .then(response => response.json() )
+                .then(data => {
+                    console.log(data);
+                    if (data.success) {
+                        alert(data.success);
+                        myModal.close();
+                        location.reload();
+                    } else {
+                        // Mostrar los errores en el lugar correspondiente
+                        for (const [field, message] of Object.entries(data.errors)) {
+                            const errorElement = document.getElementById(`${field}`);
+                            if (errorElement) {
+                                errorElement.textContent = message;
+                            }
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:',error);
+                });
+            });
         });
-    });
-
-  </script>
+    </script>
 </body>
 </html>
