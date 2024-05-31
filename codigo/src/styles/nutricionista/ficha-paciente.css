@@ -165,6 +165,10 @@ tr td:first-child {
   text-align: left;
 }
 
+tr td:last-child {
+  text-align: right;
+}
+
 .ficheros form input[type="submit"] {
   padding: 0.6rem;
   border-radius: 8px;
@@ -225,9 +229,6 @@ tr td:first-child {
     position: inherit;
   }
 
-  tr td:last-child {
-    text-align: right;
-  }
 }
 
 @media screen and (max-width: 500px) {

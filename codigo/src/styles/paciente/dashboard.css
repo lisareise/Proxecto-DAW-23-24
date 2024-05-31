@@ -1,3 +1,105 @@
+/*ventana modal*/
+dialog {
+  max-width: 650px;
+  padding: 2.8rem 3rem;
+  border: 3px solid var(--secondary-color);
+  background-color: #fafafa;
+  margin: 0 auto;
+  position: absolute;
+  top: 5%;
+  text-align: center;
+  animation: aparecer 0.5s ease-in-out;
+  -o-animation: aparecer 0.5s ease-in-out;
+  -moz-animation: aparecer 0.5s ease-in-out;
+  -webkit-animation: aparecer 0.5s ease-in-out;
+}
+
+@media screen and (max-width: 500px) {
+  dialog {
+    top: 5%;
+  }
+}
+
+@keyframes aparecer {
+  from {
+    top: -50vw;
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+dialog::backdrop {
+  background-color: #eedfdba8;
+}
+dialog h2 {
+  padding-bottom: 1rem;
+}
+
+dialog .buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+dialog input[type="submit"],
+input[type="reset"] {
+  padding: 0.6rem;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 0 0 var(--primary-color);
+  transition: box-shadow 0.3s ease-out;
+  font-weight: bold;
+}
+
+#modal form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+form p {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+#modal form p label {
+  color: #666;
+  font-size: 0.8rem;
+  margin-bottom: 0.2rem;
+}
+
+#modal input:not(input[type="reset"],input[type="submit"]){
+  height: 30px;
+  border-radius: 4px;
+  padding: 1rem;
+  width: 180px;
+  text-align: center;
+}
+div.error{
+  color: red;
+  font-size: 0.8rem;
+}
+
+label{
+  text-align: center;
+}
+
+dialog input[type="submit"]:hover {
+  box-shadow: 4px 4px 0 var(--primary-color);
+}
+
+dialog input[type="reset"]:hover {
+  box-shadow: 4px 4px 0 var(--secondary-color);
+}
+
+/*Fin ventana modal*/
+
+
 .content {
   padding: 130px 4rem;
   display: grid;
@@ -20,6 +122,10 @@ tbody {
 
 tr td:last-child {
   text-align: right;
+}
+
+.ficheros .table-wrapper tr td {
+  text-align: left;
 }
 
 th {

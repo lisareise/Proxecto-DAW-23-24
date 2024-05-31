@@ -61,6 +61,7 @@ session_start();
   <script src="https://kit.fontawesome.com/e221cb5c78.js" crossorigin="anonymous"></script>
   <script src="./src/js/header.js" defer></script>
   <link rel="stylesheet" href="src/styles/main.css" />
+  <link rel="stylesheet" href="src/styles/header.css" />
   <link rel="stylesheet" href="src/styles/login.css" />
   <title>Inicia sesión en NutriSmart</title>
 </head>

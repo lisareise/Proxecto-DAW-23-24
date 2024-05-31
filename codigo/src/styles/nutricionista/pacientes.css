@@ -152,7 +152,7 @@ th {
   text-align: left;
 }
 
-.nacimiento {
+th:last-child {
   text-align: right;
 }
 
@@ -165,7 +165,8 @@ tbody {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 3rem;
+  gap: 1rem;
+  text-align: center;
 }
 
 .botones button {
@@ -177,6 +178,20 @@ tbody {
   transition:opacity 0.3s ease-out;
   margin-bottom: 1rem;
   margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.botones a {
+  padding: 0.6rem;
+  border-radius: 8px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition:opacity 0.3s ease-out;
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+  background: var(--secondary-color);
+  font-size: 0.9rem;
 }
 
 .botones button:hover{
@@ -187,9 +202,6 @@ tbody {
   background: var(--terciary-color);
 }
 
-.eliminar {
-  background: var(--secondary-color);
-}
 
 #Buscador {
   background: url(https://cdn0.iconfinder.com/data/icons/slim-square-icons-basics/100/basics-19-32.png)

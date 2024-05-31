@@ -1,6 +1,22 @@
-header {
-  /* position: inherit; */
+header{
+  width: 100%;
+  position: fixed;
+  z-index: 99;
   background: #dae6f5;
+}
+
+li{
+  list-style: none;
+}
+
+header .container{
+  padding: 1rem 12%;
+}
+
+.nav__logo{
+  max-width: 50px;
+  max-height: 40px;
+  display: none;
 }
 
 .navbar {
@@ -11,9 +27,6 @@ header {
   gap: 1rem;
 }
 
-.navbar img {
-  display: none;
-}
 
 main {
   display: flex;
@@ -64,19 +77,22 @@ section {
 }
 
 @media screen and (max-width: 750px) {
-  .navbar {
-    justify-content: space-between;
-  }
-
-  .navbar img {
-    display: inline;
-  }
 
   .menu__secundario {
     position: fixed;
     bottom: 0;
     width: 100%;
     padding: 0.5rem;
+  }
+
+  .nav__logo{
+    max-width: 50px;
+    max-height: 40px;
+    display: inherit;
+  }
+
+  .navbar{
+    justify-content: space-between;
   }
 
   .perfil {

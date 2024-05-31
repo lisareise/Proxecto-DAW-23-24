@@ -1,0 +1,21 @@
+input[type="submit"] {
+  padding: 0.6rem;
+  border: none;
+  border-radius: 8px;
+  transition: opacity 0.3s ease-out;
+  font-weight: bold;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  background: var(--secondary-color);
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+}
+
+Form#borrarForm{
+    width: 100%;
+}
+
+th:last-child {
+    text-align: right;
+  }

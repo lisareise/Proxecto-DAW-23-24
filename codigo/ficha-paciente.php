@@ -69,39 +69,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["send"])) {
     <script src="https://kit.fontawesome.com/e221cb5c78.js" crossorigin="anonymous"></script>
     <script src="./src/js/header.js" defer></script>
     <link rel="stylesheet" href="src/styles/main.css" />
+    
     <link rel="stylesheet" href="src/styles/nutricionista/ficha-paciente.css" />
     <link rel="stylesheet" href="src/styles/main-interfaz.css">
     <title>Tus pacientes</title>
 </head>
 
 <body>
-    <header>
-        <div class="container">
-            <nav class="navbar">
-                <img class="nav__logo" src="./src/images/logo-nutrismart.png" alt="NutriSmart" />
-                <ul class="nav-menu">
-                    <li class="nav__item">
-                        <a class="nav__link" href="./landing.html">Inicio</a>
-                    </li>
-                    <li class="nav__item">
-                        <a class="nav__link" href="./noticias.html">Noticias</a>
-                    </li>
-                    <li class="nav__item">
-                        <a class="nav__link" href="./contacto.html">Contacto</a>
-                    </li>
-                    <li class="nav__item login-nav">
-                        <a class="nav__link" href="./login.html">Iniciar sesión</a>
-                    </li>
-                </ul>
-                <a href="login.html" class="login"><i class="fa-regular fa-user"></i></a>
-                <div class="hamburger">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
-            </nav>
-        </div>
-    </header>
+<header>
+    <div class="container">
+      <nav class="navbar">
+        <img class="nav__logo" src="./src/images/logo-nutrismart.png" alt="NutriSmart" />
+        
+        <?php 
+        if(isset($_SESSION['usuario'])){
+          echo'<a href="cerrar-sesion.php" class="login"><i class="fa-solid fa-right-from-bracket"></i></a>';
+        }else{
+          echo '<a href="login.php" class="login"><i class="fa-regular fa-user"></i></a>';
+        }
+        ?>       
+      </nav>
+    </div>
+  </header>
     <main>
         <aside class="menu__secundario">
             <div class="perfil">
