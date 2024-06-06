@@ -1,6 +1,6 @@
 <?php
 session_start();
-require("ficha-paciente.php");
+
 
 // Get the JSON contents
 $json = file_get_contents('php://input');
@@ -8,11 +8,10 @@ $json = file_get_contents('php://input');
 // decode the json data
 $data = json_decode($json);
 
-
 $error = [];
 
-if(empty($data -> mensaje_field)){
-    $error["mensaje_field"] = "El mensaje no se puede enviar vacío.";
+if(empty($data -> mensaje)){
+    $error["mensaje"] = "El mensaje no se puede enviar vacío.";
 }
 
 if(!empty($error)){
@@ -20,13 +19,14 @@ if(!empty($error)){
     exit;
 }
 
-$mensaje_content = $data -> mensaje_field;
+$mensaje_content = $data -> mensaje;
+$id_paciente = $data -> id_paciente;
 
 $conn = new mysqli('localhost','root','','nutrismart');
 
 //obtener el id del colegiado
 $sqlNutri = "SELECT num_colegiado FROM nutricionista where user_nutri = '$_SESSION[usuario]'";
-$resNutri = $con->query($sqlNutri);
+$resNutri = $conn->query($sqlNutri);
 if ($resNutri->num_rows > 0) {
     $row = $resNutri->fetch_assoc();
     $num_colegiado = $row['num_colegiado'];

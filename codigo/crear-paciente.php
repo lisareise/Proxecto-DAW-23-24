@@ -55,7 +55,7 @@ function validar($data)
         $errors["user_email"] = "Introduce un E-mail valido.";
     }
 
-    if (!empty($data->user_tel) && !preg_match("/^[0-9]{9}/", $data->user_tel)) {
+    if (!empty($data->user_tel) && !preg_match("/^\d{9}$/", $data->user_tel)) {
         $errors["user_tel"] = "Introduce un telefono valido.";
     }
     return $errors;

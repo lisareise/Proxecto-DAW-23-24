@@ -100,17 +100,20 @@ if (!isset($_SESSION['usuario'])) {
         if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["enviar"])) {
           if (!empty($_POST["borrar"])) {
             foreach($_POST['borrar'] as $id){
-
+              //se borran todos los ficheros relacionados con el paciente
               $consultaFichero = "DELETE FROM fichero where id_paciente ='$id'";
               $conexion -> query($consultaFichero);
+              //se borran todos los mensajes relacionados con el paciente
+              $consultaMensaje = "DELETE FROM mensaje where id_paciente ='$id'";
+              $conexion -> query($consultaMensaje);
 
               $consultaPaciente = "DELETE FROM paciente WHERE id_paciente ='$id'";
               $conexion -> query($consultaPaciente);
 
               echo '<script type="text/javascript">              
               
-                window.location.reload();
-                alert("Pacientes borrados con éxito.");
+              alert("Pacientes borrados con éxito.");
+              window.location.href = "/TFC/codigo/borrar-pacientes.php";
               </script>';
           }
           } else {

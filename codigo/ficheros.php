@@ -12,7 +12,6 @@ $conexion = new mysqli('localhost', 'root', '', 'nutrismart');
   <script src="./src/js/header.js" defer></script>
   <link rel="stylesheet" href="src/styles/main.css" />
   <link rel="stylesheet" href="src/styles/paciente/ficheros.css" />
-  <!-- <link rel="stylesheet" href="src/styles/tabla.css"> -->
   <link rel="stylesheet" href="src/styles/main-interfaz.css">
   <title>Tus ficheros</title>
 </head>

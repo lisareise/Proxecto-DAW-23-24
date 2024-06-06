@@ -12,6 +12,8 @@ $conexion = new mysqli('localhost', 'root', '', 'nutrismart');
     <link rel="stylesheet" href="src/styles/main.css" />
     <link rel="stylesheet" href="src/styles/main-interfaz.css">
     <link rel="stylesheet" href="src/styles/paciente/dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+    <script src="src/js/chart.js" defer></script>
     <title>Dashboard del paciente</title>
 </head>
 
@@ -54,7 +56,7 @@ $conexion = new mysqli('localhost', 'root', '', 'nutrismart');
                 <div class="datos">
                     <table>
                         <thead>
-                            <th rowspan="2">datos personales</th>
+                            <th colspan="2">datos personales</th>
                         </thead>
                         <tbody>
                             <?php
@@ -129,9 +131,8 @@ $conexion = new mysqli('localhost', 'root', '', 'nutrismart');
                         </table>
                     </div>
                 </div>
-                <div class="grafica">
-                    <p>evolución de peso</p>
-                    <img src="src/images/ej-grafica-peso.webp" alt="">
+                <div class="grafica">          
+                    <canvas id="myChart" width="600" height="300"></canvas>                  
                 </div>
             </article>
         </section>
@@ -237,7 +238,7 @@ $conexion = new mysqli('localhost', 'root', '', 'nutrismart');
                 });
             });
         });
-    </script>
+    </script>    
 </body>
 
 </html>

@@ -35,8 +35,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["send"])) {
                 '$num_colegiado','$id_paciente','$nombreFichero', CURDATE())";
 
             if ($conexion->query($insert) === TRUE) {
+                header("Location: ficha-paciente.php?id_paciente=".$id_paciente);
                 echo '<script type="text/javascript">
-                    alert("Archivo subido exitosamente.");      
+                    alert("Archivo subido exitosamente.");  
                         </script>';
             } else {
                 echo '<script type="text/javascript">
@@ -67,7 +68,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["send"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/e221cb5c78.js" crossorigin="anonymous"></script>
-    <script src="./src/js/header.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+    <script src="src/js/chart.js" defer></script>
     <link rel="stylesheet" href="src/styles/main.css" />
     
     <link rel="stylesheet" href="src/styles/nutricionista/ficha-paciente.css" />
@@ -98,12 +100,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["send"])) {
                 <span class="nombre-usuario" style="display: block">@<?php echo $_SESSION['usuario'] ?></span>
             </div>
             <ul class="menu--items">
-                <li class="perfil__movil"><i class="fa-solid fa-user"></i></li>
-                <li><a href="dashboard-nutri.php"><i class="fa-solid fa-table-columns"></i> <span>dashboard</span></a>
+                <li class="perfil__movil"><i class="fa-solid fa-user fa-fw"></i></li>
+                <li><a href="dashboard-nutri.php"><i class="fa-solid fa-table-columns fa-fw"></i> <span>dashboard</span></a>
                 </li>
-                <li class="selected"><a href="pacientes.php"><i class="fa-solid fa-hospital-user"></i>
+                <li class="selected"><a href="pacientes.php"><i class="fa-solid fa-hospital-user fa-fw"></i>
                         <span>pacientes</span></a></li>
-                <li><a href=""><i class="fa-solid fa-calendar-days"></i> <span>citas</span></a></a></li>
+                <li><a href=""><i class="fa-solid fa-calendar-days fa-fw"></i> <span>citas</span></a></a></li>
             </ul>
         </aside>
         <section>
@@ -114,10 +116,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["send"])) {
                         if ($result->num_rows > 0) {
                             while ($row = $result->fetch_array()) {
                                 echo $row[0] . "</h4>"; ?>
-
-
                                 <button onclick="window.modal.showModal();"><span class="texto">enviar mensaje</span> <i
                                         class="fa-regular fa-envelope"></i></button>
+                                <?php
+                                $user = "SELECT * FROM paciente where pass_paciente and user_paciente = 'sandra'";
+                                $resUser = $conexion -> query($user);
+                                if($resUser->num_rows>0){
+                                    echo'<a href="">Hola</a>';
+                                }
+                                ?>
                         </div>
                         <div class="ordenacion">
                             <table class="datos">
@@ -193,27 +200,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["send"])) {
                             <input type="submit" name="send" value="Compartir">
                         </form>
                     </div>
-                    <div class="grafica">
-                        <p>evolución de peso</p>
-                        <img src="src/images/ej-grafica-peso.webp" alt="">
-                    </div>
+                    <div class="grafica">          
+                    <canvas id="myChart" width="600" height="300"></canvas>                  
+                </div>
                 </div>
 
             </article>
         </section>
         <dialog id="modal">
-            <form action="" method="POST">
+            <form id="mensajeForm" action="enviar-mensaje.php" method="POST">
+            <div id="mensaje" class="error"></div>
                 <p class="mensaje">
                     <label for="mensaje">Escribir mensaje</label>
-                    <textarea name="mensaje" id="mensaje"></textarea>
+                    <textarea name="mensaje" id="mensaje_input"></textarea>
                 </p>
                 <p class="botones">
-                    <input type="reset" value="Cancelar" onclick="window.modal.close();">
-                    <input type="submit" value="Enviar" onclick="window.modal.close();">
+                    <input type="reset" value="Cancelar" ">
+                    <input type="submit" value="Enviar">
                 </p>
-
-
             </form>
+            <button id="closeModalButton">X</button>
         </dialog>
     </main>
     <footer>
@@ -232,6 +238,64 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["send"])) {
             </div>
         </article>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            
+            const closeModalButton = document.getElementById('closeModalButton');
+            const myModal = document.getElementById('modal');
+            const mensajeForm = document.getElementById('mensajeForm');
+
+            //Lo cierro con esta funcion para controlar que limpie los mensajes de error después de cerrarlo.
+            closeModalButton.addEventListener('click', function () {
+                // Limpiar mensajes de error anteriores
+                document.querySelectorAll('.error').forEach(el => el.textContent = '');
+                // Restablecer los valores del formulario
+                mensajeForm.reset();
+                myModal.close();
+            });
+
+            mensajeForm.addEventListener('submit', function (event) {
+                event.preventDefault(); // Prevenir el comportamiento por defecto del submit
+
+                // Limpiar mensajes de error anteriores
+                document.querySelectorAll('.error').forEach(el => el.textContent = '');
+                
+                
+                const mensaje_value = document.getElementById('mensaje_input').value;               
+                fetch('enviar-mensaje.php', {
+                    method: 'POST',
+                    headers:{
+                      'Content-Type': 'application/json',
+                      'Accept': 'application/json'
+                    },
+                    body: JSON.stringify( {                    
+                      'mensaje' :mensaje_value,
+                      'id_paciente': "<?php echo $id_paciente;?>"
+                    })
+                })
+                .then(response => response.json() )
+                .then(data => {
+                    console.log(data);
+                    if (data.success) {
+                        alert(data.success);
+                        myModal.close();
+                        location.reload();
+                    } else {
+                        // Mostrar los errores en el lugar correspondiente
+                        for (const [field, message] of Object.entries(data.errors)) {
+                            const errorElement = document.getElementById(`${field}`);
+                            if (errorElement) {
+                                errorElement.textContent = message;
+                            }
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:',error);
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
