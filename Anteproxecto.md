@@ -68,13 +68,13 @@ Na actualidade existen en España varias plataformas web que son utilizadas no �
 
 ### 2.3- Segmento de clientes
 
-Esta idea de negocio vai dirixido inicialmente aos nutricionistas individuais e sería unha opción implementala no Servicio Galego de Saúde (SERGAS), para logo ser expandido no resto de España no Sistema Nacional de Salud, que abarca os servicios de saúde da Administración do Estado e das Comunidades Autónomas.
+Esta idea de negocio vai dirixido inicialmente aos nutricionistas individuais.
 
 En España, o número de colexiados na área do nutricionismo é de 5.698, e en Galicia e de 148. (datos do ano 2020 recollidos do IGE e do INE)
 
 Nun futuro a idea sería ampliar a plataforma a outras áreas da saúde para abarcar un maior número de clientes, que pasaría a ser de 301.684, xa que é o número de médicos colexiados en España (datos sacados do INE do ano 2023). 
 
-Polo tanto, os clientes serían os nutricionistas, o SERGAS, o Sistema Nacional de Salud e nun futuro os médicos doutras áreas sanitarias e os usuarios serían os pacientes destes profesionais sanitarios.
+Polo tanto, os clientes serían os nutricionistas e nun futuro os médicos doutras áreas sanitarias e os usuarios serían os pacientes destes profesionais sanitarios.
 
 ### 2.4- Competencia
 
@@ -93,6 +93,9 @@ A cantidade de foros e sitios webs que aportan información sobre como mellorar 
 ### 2.5- Proposta de valor
 
 O que pretende esta idea a parte de unificar as funcionalidades doutras empresas xa existentes, e proporcionar unha plataforma máis sinxela para o seu uso, económica e con un soporte técnico de calidade.
+
+Unha funcionalidade futura que aforraría gastos e tempo sería a implementación dun chatbot, a súa principal función sería responder a preguntas frecuentes, o que evitaría que usuarios teñan que mandar formularios e tarden en recibir unha resposta.
+
 Un obxectivo futuro desta empresa é abarcar máis usuarios, incluíndo funcionalidades específicas para cubrir necesidades de médicos doutros ámbitos da saúde. Dependendo da especialización do médico, este terá determinadas ferramentas que lle serán útiles na súa actividade profesional.
 
 Dende o lado do cliente (profesionais médicos), mellórase a eficiencia e a productividade e o acceso aos datos, proporcionando ademáis unha seguridade para á protección destes en casos de intento de roubo ou perda.
@@ -109,34 +112,32 @@ Sen embargo, se a empresa se expande e aumentan as súas ganancias, podería ser
 
 - Equipo informático 1300 €
 - Licencia de software (Windows 11) 150 €
-- Local 300 €
 - Servizo de hosting 10 €
 
 #### 2.7.1- Custos
 
 ##### Custos fixos
-- Alquiler 300 €/mes -> 3600 € ao ano
+
 - Licencia de software 150 € ao ano 
 - Hosting 10 €/mes -> 120 € ao ano
-- Cuota mínima mensual da Seguridade Social 225 €/mes -> 2700€ ao ano
-- Salario 1100 €/mes -> 13200€ ao ano
+- Cuota mínima mensual da Seguridade Social -> cuota cero
+- Salario 1323 €/mes -> 15876€ ao ano
 
 ##### Custos variables 
-- Electricidade 188 €/mes -> 2256 € ao ano
-- Fibra (Conexión a internet) 30€/mes -> 360 € ao ano 
+
 - Marketing 200 €/mes -> 2400 € ao ano
 - IVA  21%
 - IRPF 
   
-Total mensual = 1785 + 418 = 2203 €
-Total anual = 19770 + 5016 = 24786 €
+Total mensual = 1346 + 200 = 1546 €
+Total anual = 16146 + 2400 = 18546 €
 
 #### 2.7.2- Ingresos
 O modelo de negocio que vai seguir a empresa é o de suscripción mensual, xa que así os ingresos son máis recurrentes e predecibles, polo tanto facilita a elaboración dun posible plan financieiro ou de inversións. Ademáis de poder proporcionarlle ao cliente un período de proba no que poderá decidir se os servicios que se ofrecen se adaptan debidamente ás súas necesidades.
 
 ANO 1 
 Suscripción mensual -> 25 € 
-Para cubrir todos os gastos mensuais, teríanse que vender 89 suscripcións ao mes para non estar nunha situación de perdas.
+Para cubrir todos os gastos mensuais, teríanse que vender 62 suscripcións ao mes para non estar nunha situación de perdas.
 Estímase que no primeiro ano os ingresos mensuais sexan de 625 € (25 suscripcións vendidas ao mes) -> Total de ingresos: 7500 € no primeiro ano
 
 ANO 2 
@@ -168,24 +169,24 @@ Nos primeiros anos, será case imposible obter algún beneficio, xa que é unha 
 
 Polo calculado o primeiro ano:
 Se a suscripción se vende a 25€ e se pretenden vender 25 ao mes, os ingresos serían de 7500€. 
-Nun ano, os custos fixos e variables calculados son de 24786€, polo que estaríamos a 17286€ de alcanzar o umbral de rentabilidade.  
+Nun ano, os custos fixos e variables calculados son de 18546€, polo que estaríamos a 11046€ de alcanzar o umbral de rentabilidade.  
 
 Os cálculos do segundo ano seguindo os datos calculados:
 Mantense o prezo, tamén se espera aumentar o número de clientes e vender 50 suscripcións ao mes, sendo o total de ingresos obtidos de 15000€. 
-Os ingresos seguen sendo inferiores aos costes, pero a distancia ao umbral de rentabilidade é menor que no primeiro ano:  15000 - 24786 = - 9786 € (Beneficio negativo)
+Os ingresos seguen sendo inferiores aos costes, pero a distancia ao umbral de rentabilidade é menor que no primeiro ano:  15000 - 18546 = -3546 € (Beneficio negativo)
 
 Cálculos do terceiro ano:
 Aumenta o prezo xa que se pretenden desenvolver e mellorar funcionalidades e ofrecer un mellor servizo ao cliente.
-Preténdense vender 80 suscripcións ao mes a 30€ cada unha. O total de ingresos nese ano ascenderían a 28000€ e alcanzaríanse uns beneficios positivos de 3214€ (umbral de rentabilidade positivo).
+Preténdense vender 80 suscripcións ao mes a 30€ cada unha. O total de ingresos nese ano ascenderían a 28000€ e alcanzaríanse uns beneficios positivos de 9454€ (umbral de rentabilidade positivo).
 
 Según o calculado no cuarto ano:
-Mantense o precio da suscripción e preténdese que aumenten as vendas, vendendo 100 suscripcións ao mes e obtendo uns ingresos de 36000€ e uns beneficios de 11214€.
+Mantense o precio da suscripción e preténdese que aumenten as vendas, vendendo 100 suscripcións ao mes e obtendo uns ingresos de 36000€ e uns beneficios de 17454€.
 
 #### 2.8.3- Conclusión
 
 Os primeiros anos, como na maioría das empresas que empezan unha actividade laboral, realízanse investimentos que non se poderán amortizar nos primeiros anos, e tamén os custos serán superiores aos ingresos obtidos. 
 Sen embargo unha actividade importante e que axudaría moito no crecemento económico da empresa sería unha boa promoción para darse a coñecer, e se fose posible captar a atención de inversores e conseguir financiamento. 
-Por outra parte, é un mercado que non está demasiado explotado e as oportunidades de crecemento son altas, a parte de que sendo un emprendedor xoven, hai a posibilidade de obter axudas e financiación beneficiosa de valiosa axuda sobre todo para os primeiros anos. Algúns deles son:
+Por outra parte, é un mercado que non está demasiado explotado e as oportunidades de crecemento son altas, a parte de que sendo un emprendedor xoven, hai a posibilidade de obter axudas e financiación beneficiosa de valiosa axuda, a parte de apoiarse en fondos propios. Algúns deles son:
 Líneas de financiación ICO
 Subvención polo establecemento como traballador autónomo ou por conta propia. (máximo de 9000 €)
 Microcréditos do Ministerio de Igualdade (programa PAEM): Micro financiación de ata 25000 € a mulleres que pensen en crear a súa propia empresa. 
