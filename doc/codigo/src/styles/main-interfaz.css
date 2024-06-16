@@ -38,7 +38,7 @@ main {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding: 1rem 0;
+  padding: 4.2rem 0;
   z-index: 100;
   background: #dae6f5;
   height: auto;
@@ -62,7 +62,7 @@ main {
 
 .perfil img {
   border-radius: 50%;
-  width: 150px;
+  width: 128px;
 }
 
 .menu__secundario .menu--items li {

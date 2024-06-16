@@ -1,6 +1,11 @@
 <?php
 session_start();
 $conexion = new mysqli('localhost', 'root', '', 'nutrismart');
+
+if(!isset($_SESSION['usuario'])){
+    header("Location: login.php");
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,21 +22,7 @@ $conexion = new mysqli('localhost', 'root', '', 'nutrismart');
 </head>
 
 <body>
-<header>
-    <div class="container">
-      <nav class="navbar">
-        <img class="nav__logo" src="./src/images/logo-nutrismart.png" alt="NutriSmart" />
-
-        <?php
-        if (isset($_SESSION['usuario'])) {
-          echo '<a href="cerrar-sesion.php" class="login"><i class="fa-solid fa-right-from-bracket"></i></a>';
-        } else {
-          echo '<a href="login.php" class="login"><i class="fa-regular fa-user"></i></a>';
-        }
-        ?>
-      </nav>
-    </div>
-  </header>
+<?php include("./partials/header-interfaz.php") ?>
     <main>
         <aside class="menu__secundario">
             <div class="perfil">
@@ -60,9 +51,10 @@ $conexion = new mysqli('localhost', 'root', '', 'nutrismart');
 
                         <?php
                         $mensajes = "SELECT m.contenido, m.fecha, n.nombre_completo FROM mensaje m
-                        JOIN paciente p ON m.id_paciente = m.id_paciente
+                        JOIN paciente p ON m.id_paciente = p.id_paciente
                         JOIN nutricionista n ON m.id_nutri = n.num_colegiado
-                        WHERE p.user_paciente = '$_SESSION[usuario]'";
+                        WHERE p.user_paciente = '$_SESSION[usuario]'
+                        ORDER BY m.fecha DESC";
 
                         $resMensajes = $conexion ->query($mensajes);
 
@@ -90,22 +82,7 @@ $conexion = new mysqli('localhost', 'root', '', 'nutrismart');
             </article>
         </section>
     </main>
-    <footer>
-        <article class="container__footer">
-            <div class="legal">
-                <p>Aviso legal</p>
-                <p>Política de privacidad y uso de cookies</p>
-            </div>
-            <span></span>
-            <div class="social">
-                <p><i class="fa-solid fa-feather-pointed"></i> Lisa Reise</p>
-                <div>
-                    <p><i class="fa-brands fa-instagram"></i></p>
-                    <p><i class="fa-brands fa-x-twitter"></i></p>
-                </div>
-            </div>
-        </article>
-    </footer>
+    <?php include("./partials/footer.php") ?>
 </body>
 
 </html>

@@ -1,5 +1,8 @@
 <?php
 session_start();
+if(!isset($_SESSION['usuario'])){
+  header("Location: login.php");
+}
 $conexion = new mysqli('localhost', 'root', '', 'nutrismart');
 if (!isset($_SESSION['usuario'])) {
   header('Location: login.php');
@@ -23,21 +26,7 @@ if (!isset($_SESSION['usuario'])) {
 </head>
 
 <body>
-<header>
-    <div class="container">
-      <nav class="navbar">
-        <img class="nav__logo" src="./src/images/logo-nutrismart.png" alt="NutriSmart" />
-        
-        <?php 
-        if(isset($_SESSION['usuario'])){
-          echo'<a href="cerrar-sesion.php" class="login"><i class="fa-solid fa-right-from-bracket"></i></a>';
-        }else{
-          echo '<a href="login.php" class="login"><i class="fa-regular fa-user"></i></a>';
-        }
-        ?>       
-      </nav>
-    </div>
-  </header>
+  <?php include ("./partials/header-interfaz.php") ?>
   <main>
     <aside class="menu__secundario">
       <div class="perfil">
@@ -99,23 +88,26 @@ if (!isset($_SESSION['usuario'])) {
         <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["enviar"])) {
           if (!empty($_POST["borrar"])) {
-            foreach($_POST['borrar'] as $id){
+            foreach ($_POST['borrar'] as $id) {
               //se borran todos los ficheros relacionados con el paciente
               $consultaFichero = "DELETE FROM fichero where id_paciente ='$id'";
-              $conexion -> query($consultaFichero);
+              $conexion->query($consultaFichero);
               //se borran todos los mensajes relacionados con el paciente
               $consultaMensaje = "DELETE FROM mensaje where id_paciente ='$id'";
-              $conexion -> query($consultaMensaje);
+              $conexion->query($consultaMensaje);
+
+              $consultaDatos = "DELETE FROM datos where id_paciente ='$id'";
+              $conexion->query($consultaDatos);
 
               $consultaPaciente = "DELETE FROM paciente WHERE id_paciente ='$id'";
-              $conexion -> query($consultaPaciente);
+              $conexion->query($consultaPaciente);
 
               echo '<script type="text/javascript">              
               
               alert("Pacientes borrados con éxito.");
               window.location.href = "/TFC/codigo/borrar-pacientes.php";
               </script>';
-          }
+            }
           } else {
             echo '<script type="text/javascript">
       alert("Debes seleccionar al menos un paciente.");                       
@@ -126,19 +118,6 @@ if (!isset($_SESSION['usuario'])) {
       </article>
     </section>
   </main>
-  <footer>
-    <article class="container__footer">
-      <div class="legal">
-        <p>Aviso legal</p>
-        <p>Política de privacidad y uso de cookies</p>
-      </div>
-      <span></span>
-      <div class="social">
-        <p><i class="fa-solid fa-feather-pointed"></i> Lisa Reise</p>
-        <div>
-          <p><i class="fa-brands fa-instagram"></i></p>
-          <p><i class="fa-brands fa-x-twitter"></i></p>
-        </div>
-      </div>
-    </article>
-  </footer>
+  <?php include ("./partials/footer.php") ?>
+</body>
+</html>

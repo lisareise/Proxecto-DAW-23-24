@@ -14,14 +14,20 @@ session_start();
     if ($hayDatos) {
 
       $login = $_POST["usuario"];
-      $pass = $_POST["pass"];
+      $pass_input = $_POST["pass"];
 
-      $checkPaciente = "SELECT user_paciente FROM paciente WHERE user_paciente ='$login' 
-            AND pass_paciente = '$pass'";
+      $ConsultaPass = "SELECT pass_paciente FROM paciente WHERE user_paciente = '$login'";
+      $resHash = $conexion->query($ConsultaPass);
+      if($resHash->num_rows>0){
+        $row = $resHash->fetch_assoc();
+        $hashedPass = $row['pass_paciente'];
+      }
+
+      $checkPaciente = "SELECT user_paciente FROM paciente WHERE user_paciente ='$login'";
 
       $comprobacionPaciente = $conexion->query($checkPaciente);
-
-      if ($comprobacionPaciente->num_rows == 1) {
+      
+      if ($comprobacionPaciente->num_rows >0 && password_verify($pass_input,$hashedPass)) {
 
         /* echo "usuario paciente encontrado"; */
 
@@ -34,7 +40,7 @@ session_start();
       } else {
 
         $checkNutri = "SELECT user_nutri FROM nutricionista WHERE user_nutri ='$login' 
-              AND pass_nutri = '$pass'";
+              AND pass_nutri = '$pass_input'";
 
         $comprobacionNutri = $conexion->query($checkNutri);
 
@@ -67,33 +73,7 @@ session_start();
 </head>
 
 <body>
-  <header>
-    <div class="container">
-      <nav class="navbar">
-        <img class="nav__logo" src="./src/images/logo-nutrismart.png" alt="NutriSmart" />
-        <ul class="nav-menu">
-          <li class="nav__item">
-            <a class="nav__link" href="./landing.html">Inicio</a>
-          </li>
-          <li class="nav__item">
-            <a class="nav__link" href="./noticias.html">Noticias</a>
-          </li>
-          <li class="nav__item">
-            <a class="nav__link" href="./contacto.html">Contacto</a>
-          </li>
-          <li class="nav__item login-nav">
-            <a class="nav__link" href="./login.html">Iniciar sesión</a>
-          </li>
-        </ul>
-        <a href="login.html" class="login"><i class="fa-regular fa-user"></i></a>
-        <div class="hamburger">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-        </div>
-      </nav>
-    </div>
-  </header>
+  <?php include("./partials/header.php")?>
   <main>
     <section>
       <article class="container dual">
@@ -108,6 +88,7 @@ session_start();
           }
           ?>
             <p>
+            
               <label for="usuario">Usuario</label>
             <input type="text" name="usuario" id="usuario" />
             </p>                 
@@ -123,23 +104,7 @@ session_start();
       </article>
     </section>
   </main>
-  <footer>
-    <article class="container__footer">
-      <div class="legal">
-        <p>Aviso legal</p>
-        <p>Política de privacidad y uso de cookies</p>
-      </div>
-      <span></span>
-      <div class="social">
-        <p><i class="fa-solid fa-feather-pointed"></i> Lisa Reise</p>
-        <div>
-          <p><i class="fa-brands fa-instagram"></i></p>
-          <p><i class="fa-brands fa-x-twitter"></i></p>
-        </div>
-      </div>
-    </article>
-
-  </footer>
+  <?php include("./partials/footer.php") ?>
 </body>
 
 </html>

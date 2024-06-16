@@ -1,6 +1,17 @@
 <?php
 session_start();
+if(!isset($_SESSION['usuario'])){
+    header("Location: login.php");
+}
 $conexion = new mysqli('localhost', 'root', '', 'nutrismart');
+
+$id_paciente = "SELECT id_paciente FROM paciente WHERE user_paciente = '$_SESSION[usuario]'";
+$resId = $conexion->query($id_paciente);
+if ($resId->num_rows > 0) {
+    $row = $resId->fetch_assoc();
+    $idPaciente = $row['id_paciente'];
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,21 +29,7 @@ $conexion = new mysqli('localhost', 'root', '', 'nutrismart');
 </head>
 
 <body>
-    <header>
-        <div class="container">
-            <nav class="navbar">
-                <img class="nav__logo" src="./src/images/logo-nutrismart.png" alt="NutriSmart" />
-
-                <?php
-                if (isset($_SESSION['usuario'])) {
-                    echo '<a href="cerrar-sesion.php" class="login"><i class="fa-solid fa-right-from-bracket"></i></a>';
-                } else {
-                    echo '<a href="login.php" class="login"><i class="fa-regular fa-user"></i></a>';
-                }
-                ?>
-            </nav>
-        </div>
-    </header>
+<?php include("./partials/header-interfaz.php") ?>
     <main>
         <aside class="menu__secundario">
             <div class="perfil">
@@ -94,10 +91,10 @@ $conexion = new mysqli('localhost', 'root', '', 'nutrismart');
                             }
 
                             ?>
-                            
+
                         </tbody>
                     </table>
-                    <button  onclick="window.modal.showModal();" >Editar datos</button>
+                    <button onclick="window.modal.showModal();">Editar datos</button>
                 </div>
                 <div class="ficheros">
                     <div class="table-wrapper">
@@ -118,7 +115,7 @@ $conexion = new mysqli('localhost', 'root', '', 'nutrismart');
                                     while ($fila = $resFicheros->fetch_array()) {
                                         echo "<tr>";
                                         echo "<td><a href = 'archivos/" . $fila[0] . "'>" . $fila[0] . "</a></td>";
-                                       
+
                                         echo "</tr>";
                                     }
                                 } else {
@@ -131,55 +128,40 @@ $conexion = new mysqli('localhost', 'root', '', 'nutrismart');
                         </table>
                     </div>
                 </div>
-                <div class="grafica">          
-                    <canvas id="myChart" width="600" height="300"></canvas>                  
+                <div class="grafica">
+                    <canvas id="myChart" width="600" height="300"></canvas>
                 </div>
             </article>
         </section>
         <dialog id="modal">
-      <h3>Actualiza tus datos</h3>
-      <form id="registroForm" method="POST" action="mod-datos.php">
-        <p>
-        <div id="user_email" class="error"></div>
-        <input type="text" name="user_email" id="user_email_input" placeholder="email@paciente.com">
-        </p>
-        <p>
+            <h3>Actualiza tus datos</h3>
+            <form id="registroForm" method="POST" action="mod-datos.php">
+                <p>
+                <div id="user_email" class="error"></div>
+                <input type="text" name="user_email" id="user_email_input" placeholder="email@paciente.com">
+                </p>
+                <p>
 
-        <div id="user_tel" class="error"></div>
-        <input type="text" name="user_tel" id="user_tel_input" placeholder="teléfono">
-        </p>
-        <p>
+                <div id="user_tel" class="error"></div>
+                <input type="text" name="user_tel" id="user_tel_input" placeholder="teléfono">
+                </p>
+                <p>
 
-        <div id="user_direccion" class="error"></div>
-        <input type="text" name="user_direccion" id="user_direccion_input" placeholder="dirección">
-        </p>
-        <p class="buttons">
-          <input type="reset" value="Borrar datos">
-          <input type="submit" value="Confirmar">
-        </p>
-      </form>
-      <button type="button" id="closeModalButton"><i class="fa-solid fa-x"></i></button>
-    </dialog>
+                <div id="user_direccion" class="error"></div>
+                <input type="text" name="user_direccion" id="user_direccion_input" placeholder="dirección">
+                </p>
+                <p class="buttons">
+                    <input type="reset" value="Borrar datos">
+                    <input type="submit" value="Confirmar">
+                </p>
+            </form>
+            <button type="button" id="closeModalButton"><i class="fa-solid fa-x"></i></button>
+        </dialog>
     </main>
-    <footer>
-        <article class="container__footer">
-            <div class="legal">
-                <p>Aviso legal</p>
-                <p>Política de privacidad y uso de cookies</p>
-            </div>
-            <span></span>
-            <div class="social">
-                <p><i class="fa-solid fa-feather-pointed"></i> Lisa Reise</p>
-                <div>
-                    <p><i class="fa-brands fa-instagram"></i></p>
-                    <p><i class="fa-brands fa-x-twitter"></i></p>
-                </div>
-            </div>
-        </article>
-    </footer>
+    <?php include("./partials/footer.php") ?>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            
+
             const closeModalButton = document.getElementById('closeModalButton');
             const myModal = document.getElementById('modal');
             const registroForm = document.getElementById('registroForm');
@@ -194,51 +176,114 @@ $conexion = new mysqli('localhost', 'root', '', 'nutrismart');
             });
 
             registroForm.addEventListener('submit', function (event) {
-                event.preventDefault(); // Prevenir el comportamiento por defecto del submit
+                event.preventDefault(); 
 
                 // Limpiar mensajes de error anteriores
                 document.querySelectorAll('.error').forEach(el => el.textContent = '');
-                
-                
+
+
                 const email_value = document.getElementById('user_email_input').value;
                 const tel_value = document.getElementById('user_tel_input').value;
-                const direccion_value = document.getElementById('user_direccion_input').value;               
+                const direccion_value = document.getElementById('user_direccion_input').value;
                 fetch('mod-datos.php', {
                     method: 'POST',
-                    headers:{
-                      'Content-Type': 'application/json',
-                      'Accept': 'application/json'
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
                     },
-                    body: JSON.stringify( {
-                      
-                      'user_email' : email_value,
-                      'user_tel' : tel_value,
-                      'user_direccion' :direccion_value
+                    body: JSON.stringify({
+
+                        'user_email': email_value,
+                        'user_tel': tel_value,
+                        'user_direccion': direccion_value
                     })
                 })
-                .then(response => response.json() )
-                .then(data => {
-                    console.log(data);
-                    if (data.success) {
-                        alert(data.success);
-                        myModal.close();
-                        location.reload();
-                    } else {
-                        // Mostrar los errores en el lugar correspondiente
-                        for (const [field, message] of Object.entries(data.errors)) {
-                            const errorElement = document.getElementById(`${field}`);
-                            if (errorElement) {
-                                errorElement.textContent = message;
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data.success) {
+                            alert(data.success);
+                            myModal.close();
+                            location.reload();
+                        } else {
+                            // Mostrar los errores en el lugar correspondiente
+                            for (const [field, message] of Object.entries(data.errors)) {
+                                const errorElement = document.getElementById(`${field}`);
+                                if (errorElement) {
+                                    errorElement.textContent = message;
+                                }
                             }
                         }
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:',error);
-                });
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
             });
         });
-    </script>    
+
+        //grafica
+        async function getChartInfo() {
+            const months = {
+                1: 'Ene',
+                2: 'Feb',
+                3: 'Mar',
+                4: 'Abr',
+                5: 'May',
+                6: 'Jun',
+                7: 'Jul',
+                8: 'Ago',
+                9: 'Sep',
+                10: 'Oct',
+                11: 'Nov',
+                12: 'Dic' 
+            }
+
+            response = await fetch('datos-grafica.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    'id_usuario': "<?php echo $idPaciente; ?>",
+
+
+                })
+            })
+
+            data = await response.json()
+           
+            chart_data = new Array(12).fill(null);
+            data.forEach(element => {
+                peso = parseFloat(element[0])
+                mes = parseInt(element[1])
+                chart_data[mes - 1] = peso
+                
+            });
+
+            result = {
+                "labels" : Object.values(months),
+                "chart_data":chart_data
+            }
+
+            return result
+        }
+
+        var ctx = document.getElementById("myChart").getContext("2d");
+
+
+        getChartInfo().then(response => myChart = new Chart(ctx, {
+            type: "line",
+            data: {
+                labels: response["labels"],
+                datasets: [{
+                    label: 'Evolución de peso',
+                    data: response["chart_data"]
+                }]
+            }
+        }))
+
+    </script>
 </body>
 
 </html>

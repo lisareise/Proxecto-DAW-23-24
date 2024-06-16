@@ -1,5 +1,8 @@
 <?php
 session_start();
+if(!isset($_SESSION['usuario'])){
+  header("Location: login.php");
+}
 $conexion = new mysqli('localhost', 'root', '', 'nutrismart');
 
 $sql = "SELECT SUBSTRING_INDEX(nombre_completo,' ',1) AS nombre,
@@ -23,21 +26,7 @@ $result = $conexion->query($sql);
 </head>
 
 <body>
-<header>
-    <div class="container">
-      <nav class="navbar">
-        <img class="nav__logo" src="./src/images/logo-nutrismart.png" alt="NutriSmart" />
-        
-        <?php 
-        if(isset($_SESSION['usuario'])){
-          echo'<a href="cerrar-sesion.php" class="login"><i class="fa-solid fa-right-from-bracket"></i></a>';
-        }else{
-          echo '<a href="login.php" class="login"><i class="fa-regular fa-user"></i></a>';
-        }
-        ?>       
-      </nav>
-    </div>
-  </header>
+<?php include("./partials/header-interfaz.php") ?>
   <main>
     <aside class="menu__secundario">
       <div class="perfil">
@@ -116,22 +105,7 @@ $result = $conexion->query($sql);
       </article>
     </section>
   </main>
-  <footer>
-    <article class="container__footer">
-      <div class="legal">
-        <p>Aviso legal</p>
-        <p>Política de privacidad y uso de cookies</p>
-      </div>
-      <span></span>
-      <div class="social">
-        <p><i class="fa-solid fa-feather-pointed"></i> Lisa Reise</p>
-        <div>
-          <p><i class="fa-brands fa-instagram"></i></p>
-          <p><i class="fa-brands fa-x-twitter"></i></p>
-        </div>
-      </div>
-    </article>
-  </footer>
+  <?php include("./partials/footer.php") ?>
 </body>
 
 </html>

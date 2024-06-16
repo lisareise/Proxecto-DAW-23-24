@@ -1,7 +1,9 @@
 <?php
 session_start();
 $conexion = new mysqli('localhost', 'root', '', 'nutrismart');
-
+if(!isset($_SESSION['usuario'])){
+    header("Location: login.php");
+}
 $id_paciente = $_GET['id_paciente'];
 //Consulta para obtener los datos del paciente
 $recogidaDatos = "SELECT p.nombre_completo, p.fecha_nac, p.altura, p.peso, p.direccion, p.email, p.telefono 
@@ -35,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["send"])) {
                 '$num_colegiado','$id_paciente','$nombreFichero', CURDATE())";
 
             if ($conexion->query($insert) === TRUE) {
-                header("Location: ficha-paciente.php?id_paciente=".$id_paciente);
+                header("Location: ficha-paciente.php?id_paciente=" . $id_paciente);
                 echo '<script type="text/javascript">
                     alert("Archivo subido exitosamente.");  
                         </script>';
@@ -71,28 +73,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["send"])) {
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
     <script src="src/js/chart.js" defer></script>
     <link rel="stylesheet" href="src/styles/main.css" />
-    
+
     <link rel="stylesheet" href="src/styles/nutricionista/ficha-paciente.css" />
     <link rel="stylesheet" href="src/styles/main-interfaz.css">
     <title>Tus pacientes</title>
 </head>
 
 <body>
-<header>
-    <div class="container">
-      <nav class="navbar">
-        <img class="nav__logo" src="./src/images/logo-nutrismart.png" alt="NutriSmart" />
-        
-        <?php 
-        if(isset($_SESSION['usuario'])){
-          echo'<a href="cerrar-sesion.php" class="login"><i class="fa-solid fa-right-from-bracket"></i></a>';
-        }else{
-          echo '<a href="login.php" class="login"><i class="fa-regular fa-user"></i></a>';
-        }
-        ?>       
-      </nav>
-    </div>
-  </header>
+    <?php include ("./partials/header-interfaz.php") ?>
     <main>
         <aside class="menu__secundario">
             <div class="perfil">
@@ -101,7 +89,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["send"])) {
             </div>
             <ul class="menu--items">
                 <li class="perfil__movil"><i class="fa-solid fa-user fa-fw"></i></li>
-                <li><a href="dashboard-nutri.php"><i class="fa-solid fa-table-columns fa-fw"></i> <span>dashboard</span></a>
+                <li><a href="dashboard-nutri.php"><i class="fa-solid fa-table-columns fa-fw"></i>
+                        <span>dashboard</span></a>
                 </li>
                 <li class="selected"><a href="pacientes.php"><i class="fa-solid fa-hospital-user fa-fw"></i>
                         <span>pacientes</span></a></li>
@@ -118,13 +107,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["send"])) {
                                 echo $row[0] . "</h4>"; ?>
                                 <button onclick="window.modal.showModal();"><span class="texto">enviar mensaje</span> <i
                                         class="fa-regular fa-envelope"></i></button>
-                                <?php
-                                $user = "SELECT * FROM paciente where pass_paciente and user_paciente = 'sandra'";
-                                $resUser = $conexion -> query($user);
-                                if($resUser->num_rows>0){
-                                    echo'<a href="">Hola</a>';
-                                }
-                                ?>
                         </div>
                         <div class="ordenacion">
                             <table class="datos">
@@ -180,16 +162,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["send"])) {
                                     if ($resFicheros->num_rows > 0) {
                                         while ($row = $resFicheros->fetch_array()) {
                                             echo "<tr>";
-                                            echo "<td>".$row[0]."</td>";
-                                            echo "<td>".$row[1]."</td>";
+                                            echo "<td>" . $row[0] . "</td>";
+                                            echo "<td>" . $row[1] . "</td>";
                                             echo "</tr>";
                                         }
-                                    }else{
-                                        echo "<tr>";                                   
-                                            echo "<td colspan='2' style='text-align:center;'>No hay ficheros todavía</td>";
-                                            echo "</tr>";
+                                    } else {
+                                        echo "<tr>";
+                                        echo "<td colspan='2' style='text-align:center;'>No hay ficheros todavía</td>";
+                                        echo "</tr>";
                                     }
-                                    ?>                                   
+                                    ?>
                                 </tbody>
                             </table>
                         </div>
@@ -200,16 +182,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["send"])) {
                             <input type="submit" name="send" value="Compartir">
                         </form>
                     </div>
-                    <div class="grafica">          
-                    <canvas id="myChart" width="600" height="300"></canvas>                  
-                </div>
+                    <div class="grafica">
+                        <canvas id="myChart" width="600" height="300"></canvas>
+                    </div>
                 </div>
 
             </article>
         </section>
         <dialog id="modal">
             <form id="mensajeForm" action="enviar-mensaje.php" method="POST">
-            <div id="mensaje" class="error"></div>
+                <div id="mensaje" class="error"></div>
                 <p class="mensaje">
                     <label for="mensaje">Escribir mensaje</label>
                     <textarea name="mensaje" id="mensaje_input"></textarea>
@@ -222,25 +204,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["send"])) {
             <button id="closeModalButton">X</button>
         </dialog>
     </main>
-    <footer>
-        <article class="container__footer">
-            <div class="legal">
-                <p>Aviso legal</p>
-                <p>Política de privacidad y uso de cookies</p>
-            </div>
-            <span></span>
-            <div class="social">
-                <p><i class="fa-solid fa-feather-pointed"></i> Lisa Reise</p>
-                <div>
-                    <p><i class="fa-brands fa-instagram"></i></p>
-                    <p><i class="fa-brands fa-x-twitter"></i></p>
-                </div>
-            </div>
-        </article>
-    </footer>
+    <?php include ("./partials/footer.php") ?>
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            
+
             const closeModalButton = document.getElementById('closeModalButton');
             const myModal = document.getElementById('modal');
             const mensajeForm = document.getElementById('mensajeForm');
@@ -259,42 +227,105 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["send"])) {
 
                 // Limpiar mensajes de error anteriores
                 document.querySelectorAll('.error').forEach(el => el.textContent = '');
-                
-                
-                const mensaje_value = document.getElementById('mensaje_input').value;               
+
+
+                const mensaje_value = document.getElementById('mensaje_input').value;
                 fetch('enviar-mensaje.php', {
                     method: 'POST',
-                    headers:{
-                      'Content-Type': 'application/json',
-                      'Accept': 'application/json'
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
                     },
-                    body: JSON.stringify( {                    
-                      'mensaje' :mensaje_value,
-                      'id_paciente': "<?php echo $id_paciente;?>"
+                    body: JSON.stringify({
+                        'mensaje': mensaje_value,
+                        'id_paciente': "<?php echo $id_paciente; ?>"
                     })
                 })
-                .then(response => response.json() )
-                .then(data => {
-                    console.log(data);
-                    if (data.success) {
-                        alert(data.success);
-                        myModal.close();
-                        location.reload();
-                    } else {
-                        // Mostrar los errores en el lugar correspondiente
-                        for (const [field, message] of Object.entries(data.errors)) {
-                            const errorElement = document.getElementById(`${field}`);
-                            if (errorElement) {
-                                errorElement.textContent = message;
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data.success) {
+                            alert(data.success);
+                            myModal.close();
+                            location.reload();
+                        } else {
+                            // Mostrar los errores en el lugar correspondiente
+                            for (const [field, message] of Object.entries(data.errors)) {
+                                const errorElement = document.getElementById(`${field}`);
+                                if (errorElement) {
+                                    errorElement.textContent = message;
+                                }
                             }
                         }
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:',error);
-                });
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
             });
         });
+
+        //grafica
+        async function getChartInfo() {
+            const months = {
+                1: 'Ene',
+                2: 'Feb',
+                3: 'Mar',
+                4: 'Abr',
+                5: 'May',
+                6: 'Jun',
+                7: 'Jul',
+                8: 'Ago',
+                9: 'Sep',
+                10: 'Oct',
+                11: 'Nov',
+                12: 'Dic'
+            }
+
+            response = await fetch('datos-grafica.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    'id_usuario': "<?php echo $id_paciente; ?>",
+
+
+                })
+            })
+
+            data = await response.json()
+
+            chart_data = new Array(12).fill(null);
+            data.forEach(element => {
+                peso = parseFloat(element[0])
+                mes = parseInt(element[1])
+                chart_data[mes - 1] = peso
+
+            });
+
+            result = {
+                "labels": Object.values(months),
+                "chart_data": chart_data
+            }
+
+            return result
+        }
+
+        var ctx = document.getElementById("myChart").getContext("2d");
+
+
+        getChartInfo().then(response => myChart = new Chart(ctx, {
+            type: "line",
+            data: {
+                labels: response["labels"],
+                datasets: [{
+                    label: 'Evolución de peso',
+                    data: response["chart_data"]
+                }]
+            }
+        }))
+
     </script>
 </body>
 

@@ -1,5 +1,8 @@
 <?php
 session_start();
+if(!isset($_SESSION['usuario'])){
+    header("Location: login.php");
+}
 function obligatorios($data)
 {
     $errors = [];
@@ -26,13 +29,26 @@ function obligatorios($data)
     if (empty($data->user_direccion)) {
         $errors["user_direccion"] = "Introduce una dirección.";
     }
+
+    if(empty($data->user_name)){
+        $errors["user_name"] = "Introduce un nombre de usuario";
+    }
+
+    if(empty($data-> user_pass)){
+        $errors["user_pass"] = "Introduce una contraseña";
+    }
+
+    if(empty($data-> user_pass_rep)){
+        $errors["user_pass_rep"] = "Confirma la contraseña";
+    }
     return $errors;
 }
 
 function validar($data)
 {
+    $conexion = new mysqli('localhost', 'root', '', 'nutrismart');
     $errors = [];
-    if (!empty($data->new_user) && !preg_match("/^[a-zA-Z\s]+$/", $data->new_user)) {
+    if (!empty($data->new_user) && !preg_match("/^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s]+$/", $data->new_user)) {
         $errors["new_user"] = "Introduce un nombre válido.";
     }
 
@@ -40,8 +56,8 @@ function validar($data)
         $errors["user_altura"] = "Introduce una altura válida.";
     }
 
-    if (!empty($data->user_peso) && !strpos($data->user_peso, '.')) {
-        $errors["user_peso"] = "Introduce un peso válido. (decimal)";
+    if (!empty($data->user_peso) && !is_numeric($data->user_peso)) {
+        $errors["user_peso"] = "Introduce un peso válido.";
     }
 
     if (!empty($data->user_fnac)) {
@@ -58,6 +74,27 @@ function validar($data)
     if (!empty($data->user_tel) && !preg_match("/^\d{9}$/", $data->user_tel)) {
         $errors["user_tel"] = "Introduce un telefono valido.";
     }
+
+    $consultaUser = "SELECT * FROM paciente where user_paciente = '$data->user_name'";
+    $resUser = $conexion-> query($consultaUser);
+    if($resUser->num_rows>0){
+        $errors["user_name"] = "El nombre de usuario ya existe";
+    }
+
+    $consultaUserNutri = "SELECT * FROM nutricionista where user_nutri = '$data->user_name'";
+    $resUserNutri = $conexion-> query($consultaUserNutri);
+    if($resUserNutri->num_rows>0){
+        $errors["user_name"] = "El nombre de usuario ya existe";
+    }
+    
+    if(!empty($data->user_pass) && !preg_match('/^.{6,}$/',$data->user_pass)){
+        $errors["user_pass"] = "Mínimo 6 caracteres.";
+    }
+
+    if(!empty($data->user_pass_rep) && $data->user_pass_rep != $data->user_pass){
+        $errors["user_pass_rep"] = "Las contraseñas no coinciden.";
+    }
+
     return $errors;
 }
 
@@ -84,6 +121,11 @@ $fnac = $data->user_fnac;
 $email = $data->user_email;
 $tel = $data->user_tel;
 $direccion = $data->user_direccion;
+$userName = $data-> user_name;
+$userPass = $data->user_pass;
+$userPassRep = $data->user_pass_rep;
+
+$hashedPass = password_hash($userPass,PASSWORD_DEFAULT);
 
 $con = new mysqli('localhost', 'root', '', 'nutrismart');
 if ($con->connect_error) {
@@ -97,8 +139,8 @@ if ($resNutri->num_rows > 0) {
     $num_colegiado = $row['num_colegiado'];
 }
 
-$insert = "INSERT INTO paciente (id_nutri, nombre_completo, fecha_nac, altura, peso, direccion, email, telefono)
-        VALUES ('$num_colegiado','$newUser','$fnac','$altura','$peso','$direccion','$email','$tel')";
+$insert = "INSERT INTO paciente (id_nutri, user_paciente, pass_paciente, nombre_completo, fecha_nac, altura, peso, direccion, email, telefono)
+        VALUES ('$num_colegiado', '$userName','$hashedPass','$newUser','$fnac','$altura','$peso','$direccion','$email','$tel')";
 
 if ($con->query($insert) === TRUE) {
 

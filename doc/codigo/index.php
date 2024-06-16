@@ -16,45 +16,13 @@
   </head>
 
   <body>
-    <header>
-      <div class="container">
-        <nav class="navbar">
-          <img
-            class="nav__logo"
-            src="./src/images/logo-nutrismart.png"
-            alt="NutriSmart"
-          />
-          <ul class="nav-menu">
-            <li class="nav__item">
-              <a class="nav__link" href="./landing.html">Inicio</a>
-            </li>
-            <li class="nav__item">
-              <a class="nav__link" href="./noticias.html">Noticias</a>
-            </li>
-            <li class="nav__item">
-              <a class="nav__link" href="./contacto.html">Contacto</a>
-            </li>
-            <li class="nav__item login-nav">
-              <a class="nav__link" href="/codigo/login.php">Iniciar sesión</a>
-            </li>
-          </ul>
-          <a href="login.php" class="login"
-            ><i class="fa-regular fa-user"></i
-          ></a>
-          <div class="hamburger">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-          </div>
-        </nav>
-      </div>
-    </header>
+    <?php include("./partials/header.php") ?>
     <main>
       <swiper-container>
         <swiper-slide>
           <div class="slide-container">
             <div>
-              <h1>Revoluciona tu gestión de pacientes!</h1>
+              <h1>¡Revoluciona tu gestión de pacientes!</h1>
               <p>
                 Olvídate de las hojas de cálculo y los cuadernos desorganizados.
                 Nuestra plataforma te permite gestionar de forma eficiente a tus
@@ -70,8 +38,8 @@
           <div class="slide-container">
             <div>
               <h2>
-                Únete a la comunidad de nutricionistas que ya se están
-                modernizando
+                Únete a la comunidad de nutricionistas
+                modernizandos.
               </h2>
               <p>
                 Disfruta de una plataforma intuitiva y fácil de usar, diseñada
@@ -185,21 +153,6 @@
         </article>
       </section>
     </main>
-    <footer>
-      <article class="container__footer">
-        <div class="legal">
-          <p>Aviso legal</p>
-          <p>Política de privacidad y uso de cookies</p>
-        </div>
-        <span></span>
-        <div class="social">
-          <p><i class="fa-solid fa-feather-pointed"></i> Lisa Reise</p>
-          <div>
-            <p><i class="fa-brands fa-instagram"></i></p>
-            <p><i class="fa-brands fa-x-twitter"></i></p>
-          </div>
-        </div>
-      </article>
-    </footer>
+    <?php include("./partials/footer.php") ?>
   </body>
 </html>

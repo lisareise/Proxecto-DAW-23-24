@@ -22,9 +22,13 @@ input[type="submit"]:hover{
 }
 
 input:not(input[type="submit"]){
-    width: 55px;
     height: 30px;
     padding: 0.3rem;
+}
+
+div.error{
+  color: red;
+  font-size: 0.8rem;
 }
 
 .content {

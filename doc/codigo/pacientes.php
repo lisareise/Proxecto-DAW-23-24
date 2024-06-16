@@ -14,7 +14,7 @@ if (!isset($_SESSION['usuario'])) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://kit.fontawesome.com/e221cb5c78.js" crossorigin="anonymous"></script>
-  <script src="./src/js/header.js" defer></script>
+ 
   <link rel="stylesheet" href="src/styles/main.css" />
   <link rel="stylesheet" href="src/styles/main-interfaz.css">
   <link rel="stylesheet" href="src/styles/nutricionista/pacientes.css">
@@ -22,21 +22,7 @@ if (!isset($_SESSION['usuario'])) {
 </head>
 
 <body>
-  <header>
-    <div class="container">
-      <nav class="navbar">
-        <img class="nav__logo" src="./src/images/logo-nutrismart.png" alt="NutriSmart" />
-        
-        <?php 
-        if(isset($_SESSION['usuario'])){
-          echo'<a href="cerrar-sesion.php" class="login"><i class="fa-solid fa-right-from-bracket"></i></a>';
-        }else{
-          echo '<a href="login.php" class="login"><i class="fa-regular fa-user"></i></a>';
-        }
-        ?>       
-      </nav>
-    </div>
-  </header>
+<?php include("./partials/header-interfaz.php") ?>
   <main>
     <aside class="menu__secundario">
       <div class="perfil">
@@ -106,22 +92,18 @@ if (!isset($_SESSION['usuario'])) {
       <h3>Datos del nuevo paciente</h3>
       <form id="registroForm" method="POST" action="crear-paciente.php">
         <p>
-
         <div id="new_user" class="error"></div>
         <input type="text" name="new_user" id="new_user_input" placeholder="nombre completo">
-        </p>
+        </p>      
         <p>
-
         <div id="user_altura" class="error"></div>
         <input type="text" name="user_altura" id="user_altura_input" placeholder="altura (cm)">
         </p>
         <p>
-
         <div id="user_peso" class="error"></div>
         <input type="text" name="user_peso" id="user_peso_input" placeholder="peso (kg)">
         </p>
         <p>
-
         <div id="user_fnac" class="error"></div>
         <label for="user_fnac">fecha de nacimiento</label>
         <input type="date" name="user_fnac" id="user_fnac_input">
@@ -137,9 +119,23 @@ if (!isset($_SESSION['usuario'])) {
         <input type="text" name="user_tel" id="user_tel_input" placeholder="teléfono">
         </p>
         <p>
-
         <div id="user_direccion" class="error"></div>
         <input type="text" name="user_direccion" id="user_direccion_input" placeholder="dirección">
+        </p>
+        <h3>Datos de usuario</h3>
+        <p>
+        <div id="user_name" class="error"></div>
+        <input type="text" name="user_name" id="user_name_input" placeholder="@nombre_usuario">
+        </p>
+        <p>
+          <div id="user_pass" class="error"></div>
+          <label for="user_pass">contraseña</label>
+          <input type="password" name="user_pass" id="user_pass_input">
+        </p>
+        <p>
+          <div id="user_pass_rep" class="error"></div>
+          <label for="user_pass_rep">repite la contraseña</label>
+          <input type="password" name="user_pass_rep" id="user_pass_rep_input">
         </p>
         <p class="buttons">
           <input type="reset" value="Borrar datos">
@@ -149,22 +145,7 @@ if (!isset($_SESSION['usuario'])) {
       <button type="button" id="closeModalButton"><i class="fa-solid fa-x"></i></button>
     </dialog>
   </main>
-  <footer>
-    <article class="container__footer">
-      <div class="legal">
-        <p>Aviso legal</p>
-        <p>Política de privacidad y uso de cookies</p>
-      </div>
-      <span></span>
-      <div class="social">
-        <p><i class="fa-solid fa-feather-pointed"></i> Lisa Reise</p>
-        <div>
-          <p><i class="fa-brands fa-instagram"></i></p>
-          <p><i class="fa-brands fa-x-twitter"></i></p>
-        </div>
-      </div>
-    </article>
-  </footer>
+  <?php include("./partials/footer.php") ?>
   <script>
         document.addEventListener('DOMContentLoaded', function () {
             
@@ -193,7 +174,11 @@ if (!isset($_SESSION['usuario'])) {
                 const fnac_value = document.getElementById('user_fnac_input').value;
                 const email_value = document.getElementById('user_email_input').value;
                 const tel_value = document.getElementById('user_tel_input').value;
-                const direccion_value = document.getElementById('user_direccion_input').value;               
+                const direccion_value = document.getElementById('user_direccion_input').value; 
+                const user_value = document.getElementById('user_name_input').value;
+                const pass_value = document.getElementById('user_pass_input').value;
+                const pass_rep_value = document.getElementById('user_pass_rep_input').value;   
+
                 fetch('crear-paciente.php', {
                     method: 'POST',
                     headers:{
@@ -207,7 +192,10 @@ if (!isset($_SESSION['usuario'])) {
                       'user_fnac' : fnac_value,
                       'user_email' : email_value,
                       'user_tel' : tel_value,
-                      'user_direccion' :direccion_value
+                      'user_direccion' :direccion_value,
+                      'user_name' : user_value,
+                      'user_pass' : pass_value,
+                      'user_pass_rep' : pass_rep_value 
                     })
                 })
                 .then(response => response.json() )

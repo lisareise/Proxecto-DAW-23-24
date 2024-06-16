@@ -1,6 +1,8 @@
 <?php
 session_start();
-
+if(!isset($_SESSION['usuario'])){
+    header("Location: login.php");
+}
 
 // Get the JSON contents
 $json = file_get_contents('php://input');
