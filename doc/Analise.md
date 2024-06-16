@@ -15,18 +15,18 @@
 
 ## 1- Descrición Xeral
 
->O proxecto centrarase en crear unha plataforma web para un nutricionista/dietista e os seus pacientes.
->A interfaz do dietista permitirá ao profesional obter unha visual de todos os seus pacientes e poderá xestionalos como él o precise:
->- Poderá engadir novos pacientes á súa lista ou eliminalos. 
->- Cada paciente contará cunha ficha, na que se indican os seus datos persoais e un calendario de dietas que o nutricionista pode modificar en calquera momento. Ademáis contará cun apartado para escribir notas ou observacións se o necesita.
->- Pode enviar avisos ou novas indicacións aos seus pacientes.
->A interfaz do paciente ten como obxectivo unha mellor visualización das indicacións do seu especialista:
->- Visualizará un calendario de dietas que o nutricionista lle vai especificando.
->- Poderá levar un rexitro de calorías diarias introducindo os alimentos que consume no seu día a día.
->- Poderá visualizar os avisos ou as novas indicacións que lle manda o seu médico.
+O proxecto centrarase en crear unha plataforma web para un nutricionista/dietista e os seus pacientes.
+A interfaz do dietista permitirá ao profesional obter unha visual de todos os seus pacientes e poderá xestionalos como él o precise:
+- Poderá engadir novos pacientes á súa lista ou eliminalos. 
+- Cada paciente contará cunha ficha, na que se indican os seus datos persoais e un calendario de dietas que o nutricionista pode modificar en calquera momento. Ademáis contará cun apartado para escribir notas ou observacións se o necesita.
+- Pode enviar avisos ou novas indicacións aos seus pacientes.
+A interfaz do paciente ten como obxectivo unha mellor visualización das indicacións do seu especialista:
+- Visualizará un calendario de dietas que o nutricionista lle vai especificando.
+- Poderá levar un rexitro de calorías diarias introducindo os alimentos que consume no seu día a día.
+- Poderá visualizar os avisos ou as novas indicacións que lle manda o seu médico.
 
->O que se pretende coa idea deste proxecto e mellorar a comunicación e a xestión do profesional sanitario co seu paciente, sendo capaces de actualizar os datos con regularidade reducindo as consultas presenciais que podería haber de por medio. Ademáis tamén se pretende mellorar o método de traballo do profesional sanitario.
->Preténdese chegar ao ámbito sanitario galego, pudendo ofrecer un novo medio de comunicación e de traballo que non se está aproveitando na actualidade e que podería facilitar moitos trámites.
+O que se pretende coa idea deste proxecto e mellorar a comunicación e a xestión do profesional sanitario co seu paciente, sendo capaces de actualizar os datos con regularidade reducindo as consultas presenciais que podería haber de por medio. Ademáis tamén se pretende mellorar o método de traballo do profesional sanitario.
+Preténdese chegar ao ámbito sanitario galego, pudendo ofrecer un novo medio de comunicación e de traballo que non se está aproveitando na actualidade e que podería facilitar moitos trámites.
 
 ## 2- Funcionalidades
 
@@ -36,34 +36,32 @@
 | Peche da sesión | Tanto o dietista como o paciente terán que pechar a sesión (función de ambos usuarios)|
 | Alta de clientes  | Dar de alta os pacientes na base de datos mediante unha función de rexistrar pacientes (función do profesional)|
 | Baixa de clientes  | Dar de baixa os pacientes na base de datos (función do profesional)|
-| Modificación de datos personais do paciente  | Ao rexistrar un usuario, o profesional deberá introducir datos persoais do paciente que máis adiante poderá modificar se fose necesario (función do profesional) |
-| Posibilidade de rexistrar observacións | En cada ficha de usuario, poderánse rexistrar notas ou observacións que teñan que ver co progreso do paciente. (función do profesional) |
+| Modificación de datos personais  | Ao rexistrar un usuario, o profesional deberá introducir datos persoais do paciente que máis adiante o paciente poderá modificar se fose necesario. (función do paciente) |
 | Método de mensaxes  | O nutricionista poderá mandar mensaxes a cada paciente por medio dun sistema de mensaxería unidireccional. O paciente non ten modo de responder (función do profesional)|
-| Introducir dietas nun calendario que dispón cada un dos pacientes | Introducir as dietas e gardalas nunha base de datos (función do profesional)|
-| Modificar esas dietas  | Modificar as dietas no calendario de cada paciente, os cambios se gardan na base de datos (función do profesional) |
-| Facer visibles esas dietas  | As dietas son visibles para cada paciente (estes non a poden modificar), encontraránse nun calendario no que estará visualizada a dieta de cada un. Empregarase comunicación asíncrona (visual para o paciente e o profesional) |
-| Introducción de datos nutricionais diariamente  | O paciente poderá levar a cabo un rexistro da cantidade de calorías inxeridas ao día, facilitarase unha base de datos nutricional / API para unha introducción de datos máis cómoda. (función do paciente) |
+| Subir arquivos | En cada ficha de cada paciente, o nutricionista poderá compartir os arquivos que crea que son de interés (función do profesional)|
+| Visualizar arquivos  |Os arquivos compartidos son visibles para cada paciente (estes poden descargar ou visualizar cada arquivo) |
+| Introducción de peso  | O paciente poderá levar a cabo un rexistro do seu peso, gardarase un dato por mes e estes datos traduciranse nunha gráfica que tanto o nutricionista como o paciente poderán visualizar. (función do paciente) |
 
 
 ## 3- Tipos de usuarios
 
->Haberá tres tipos de usuarios:
->- Usuario xenérico: Terá únicamente acceso á páxina principal que é a que presenta á empresa, onde poderá leer e entender de qué se trata e informarse.
->- Usuario profesional: O dietista/nutricionista, accederá ao seu espazo iniciando sesión. Administrará aos seus pacientes dándoos de alta, modificando os seus datos, e tamén poderá dalos de baixa. 
->Pode entrar nas fichas dos seus pacientes para escribir observacións e introducir ou modificar as dietas no calendario dos pacientes.
->Se o necesita, pode enviar recordatorios aos seus pacientes.
->- Usuario paciente: O paciente do nutricionista, accederá ao seu espacio iniciando sesión.
->Pode ver os seus datos persoais (os que tamén dispón o médico) e terá acceso a un calendario onde estarán postas as dietas que debe respetar día a día.
->Pode levar un rexistro das calorías diarias introducindo os alimentos que inxire a diario.
+Haberá tres tipos de usuarios:
+- Usuario xenérico: Terá únicamente acceso á páxina principal que é a que presenta á empresa, onde poderá leer e entender de qué se trata e informarse.
+- Usuario profesional: O dietista/nutricionista, accederá ao seu espazo iniciando sesión. Administrará aos seus pacientes dándoos de alta, modificando os seus datos, e tamén poderá dalos de baixa. 
+Pode entrar nas fichas dos seus pacientes para escribir recordatorios, visualizar o progreso do paciente e compartir arquivos.
+
+- Usuario paciente: O paciente do nutricionista, accederá ao seu espacio iniciando sesión.
+Pode ver os seus datos persoais (os que tamén dispón o médico) os arquivos compartidos polo seu nutricionista e os seus avisos.
+Pode levar un rexistro do seu peso que se traduce nunha gráfica.
 
 
 ## 4- Contorno operacional
 
->Para interactuar coa plataforma web necesitarase un dispositivo electrónico (tablet, móbil ou ordenador persoal) e internet.
+Para interactuar coa plataforma web necesitarase un dispositivo electrónico (tablet, móbil ou ordenador persoal) e internet.
 
 ## 5- Normativa
 
->A continuación explicaránse as normativas e leis que deberá cumplir a plataforma web:
+A continuación explicaránse as normativas e leis que deberá cumplir a plataforma web:
 #### Ley orgánica de Protección de datos Personales y garantía de derechos digitales
 - A plataforma web deberá cumplir cos principios de tratamento de datos persoais establecidos na lei, como a lealtad, transparencia, limitación do propósito, minimización de datos, exactitud conservación e seguridade.
 - Deberase obter o consentimento expreso dos pacientes para a obtención e tratamento dos seus datos persoais. Polo tanto tamén se deberá implementar un sistema de seguridade axeitado para protexer tales datos.
@@ -86,10 +84,10 @@ Se se realizase publicidade falsa sobre os servicios, prácticas ilícitas para 
 
 ## 6- Melloras futuras
 
->Nun principio a web pensouse para centrarse no campo da nutrición, onde o especialista sanitario tivese as ferramentas necesarias para una mellor xestión e visualización dos seus pacientes, ademáis de poder dar avisos ou novas indicacións sen ter que chamar ou concertar unha cita. Tamén pode xestionar as dietas dos pacientes de forma remota, accedendo ao calendario individual de cada un e facendo os cambios que se precisen.
->Unha mellora futura sería implementar a maiores unha funcionalidade para xestionar as citas de todos os seus pacientes, visualizándoas todas nun calendario e indicando a hora de cada unha. Ante calquera imprevisto, o profesional podería anulalas e avisaría ao seu cliente.
->Outra mellora bastante necesaria sería a de mellorar o sistema de mensaxes, e que puidese pasar a ser un chat bidireccional entre o paciente e o especialista.
+Nun principio a web pensouse para centrarse no campo da nutrición, onde o especialista sanitario tivese as ferramentas necesarias para una mellor xestión e visualización dos seus pacientes, ademáis de poder dar avisos ou novas indicacións sen ter que chamar ou concertar unha cita. Tamén pode xestionar as dietas dos pacientes de forma remota, accedendo ao calendario individual de cada un e facendo os cambios que se precisen.
+Unha mellora futura sería implementar a maiores unha funcionalidade para xestionar as citas de todos os seus pacientes, visualizándoas todas nun calendario e indicando a hora de cada unha. Ante calquera imprevisto, o profesional podería anulalas e avisaría ao seu cliente.
+Outra mellora bastante necesaria sería a de mellorar o sistema de mensaxes, e que puidese pasar a ser un chat bidireccional entre o paciente e o especialista.
 
->En canto á experiencia do paciente, engadiríase a posibilidade de vincular a plataforma con outras aplicacións da saúde, como por exemplo rexistrar os pasos diarios que rexistra o móbil, ou os distintos tipos de actividade que se poden rexistrar en reloxes dixitáis e as respectivas calorías que se queiman, xa que poderían ser datos de importacia para o especialista sanitario.
+En canto á experiencia do paciente, engadiríase a posibilidade de vincular a plataforma con outras aplicacións da saúde, como por exemplo rexistrar os pasos diarios que rexistra o móbil, ou os distintos tipos de actividade que se poden rexistrar en reloxes dixitáis e as respectivas calorías que se queiman, xa que poderían ser datos de importacia para o especialista sanitario.
 
->Unha mellora a considerar tamén sería a de adaptar a web a profesionais doutras ramas da saúde, para abarcar un maior número de usuarios e poder satisfacer máis necesidades.
+Unha mellora a considerar tamén sería a de adaptar a web a profesionais doutras ramas da saúde, para abarcar un maior número de usuarios e poder satisfacer máis necesidades.

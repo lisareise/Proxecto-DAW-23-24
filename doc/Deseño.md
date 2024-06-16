@@ -11,10 +11,10 @@
 
 ## 2- Casos de uso
 
-![Diagrama de casos de uso](/imaxes/diagramaUso.png)
+![Diagrama de casos de uso](./imaxes/diagramaUso.png)
 
 ## 3- Diagrama de Base de Datos
-![Modelo entidad relación](/imaxes/modelo-entidad-relación.png)
+![Modelo entidad relación](./imaxes/modelo-entidad-relación.png)
 
 ## 4- Deseño de interface de usuarios
 

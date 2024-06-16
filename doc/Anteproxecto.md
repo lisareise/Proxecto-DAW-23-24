@@ -62,9 +62,9 @@ Pola parte do profesional, as necesidades que se pretenden satisfacer son: Unha 
 
 Na actualidade existen en España varias plataformas web que son utilizadas no ámbito sanitario privado, como Docline, Selene e Doctoralia, entre outras. Pero no ámbito público non se está a utilizar ningunha plataforma web que conecte os pacientes cos seus médicos.
 #### Análisis DAFO
-![Modelo canvas de la idea de negocio](/imaxes/analisis-dafo.png)
+![Modelo canvas de la idea de negocio](./imaxes/analisis-dafo.png)
 #### Modelo canvas
-![Modelo canvas de la idea de negocio](/imaxes/Canvas.png)
+![Modelo canvas de la idea de negocio](./imaxes/Canvas.png)
 
 ### 2.3- Segmento de clientes
 
@@ -219,6 +219,6 @@ Microcréditos do Ministerio de Igualdade (programa PAEM): Micro financiación d
 
 #### Calendario de organización de fases do proxecto:
  
-![Organización abril](/imaxes/abril%202024.png)
-![Organización maio](/imaxes/mayo%202024.png)
-![Organización xuño](/imaxes/junio%202024.png)
+![Organización abril](./imaxes/abril%202024.png)
+![Organización maio](./imaxes/mayo%202024.png)
+![Organización xuño](./imaxes/junio%202024.png)
