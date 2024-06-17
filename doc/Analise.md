@@ -42,7 +42,7 @@ Preténdese chegar ao ámbito sanitario galego, pudendo ofrecer un novo medio de
 | Método de mensaxes  | O nutricionista poderá mandar mensaxes a cada paciente por medio dun sistema de mensaxería unidireccional. O paciente non ten modo de responder (función do profesional)|
 | Subir arquivos | En cada ficha de cada paciente, o nutricionista poderá compartir os arquivos que crea que son de interés (función do profesional)|
 | Visualizar arquivos  |Os arquivos compartidos son visibles para cada paciente (estes poden descargar ou visualizar cada arquivo) |
-| Introducción de peso  | O paciente poderá levar a cabo un rexistro do seu peso, gardarase un dato por mes e estes datos traduciranse nunha gráfica que tanto o nutricionista como o paciente poderán visualizar. (función do paciente) |
+| Rexistro de peso  | O paciente poderá levar a cabo un rexistro do seu peso, gardarase un dato por mes e estes datos traduciranse nunha gráfica que tanto o nutricionista como o paciente poderán visualizar. (función do paciente) |
 
 
 ## 3- Tipos de usuarios
