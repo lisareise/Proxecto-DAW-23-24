@@ -18,12 +18,14 @@
 O proxecto centrarase en crear unha plataforma web para un nutricionista/dietista e os seus pacientes.
 A interfaz do dietista permitirá ao profesional obter unha visual de todos os seus pacientes e poderá xestionalos como él o precise:
 - Poderá engadir novos pacientes á súa lista ou eliminalos. 
-- Cada paciente contará cunha ficha, na que se indican os seus datos persoais e un calendario de dietas que o nutricionista pode modificar en calquera momento. Ademáis contará cun apartado para escribir notas ou observacións se o necesita.
+- Cada paciente contará cunha ficha, na que se indican os seus datos persoais. 
 - Pode enviar avisos ou novas indicacións aos seus pacientes.
+- Poderá compartir ficheiros con todos os seus pacientes.
 A interfaz do paciente ten como obxectivo unha mellor visualización das indicacións do seu especialista:
-- Visualizará un calendario de dietas que o nutricionista lle vai especificando.
-- Poderá levar un rexitro de calorías diarias introducindo os alimentos que consume no seu día a día.
+- Poderá levar un rexistro do seu peso regularmente, e visualizar unha gráfica con eses datos rexistrados.
 - Poderá visualizar os avisos ou as novas indicacións que lle manda o seu médico.
+- Pode modificar en calquer momento os seus datos de contacto.
+- Terá á súa disposición unha listaxe con todos os ficheiros que lle comparte o seu nutricionista.
 
 O que se pretende coa idea deste proxecto e mellorar a comunicación e a xestión do profesional sanitario co seu paciente, sendo capaces de actualizar os datos con regularidade reducindo as consultas presenciais que podería haber de por medio. Ademáis tamén se pretende mellorar o método de traballo do profesional sanitario.
 Preténdese chegar ao ámbito sanitario galego, pudendo ofrecer un novo medio de comunicación e de traballo que non se está aproveitando na actualidade e que podería facilitar moitos trámites.
