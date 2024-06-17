@@ -60,7 +60,7 @@ if ($con->connect_error) {
 $update = "UPDATE paciente SET
 email = '$email',
 telefono = $tel,
-direccion = '$direccion'";
+direccion = '$direccion' WHERE user_paciente = '$_SESSION[usuario]'";
 
 if ($con->query($update) === TRUE) {
 

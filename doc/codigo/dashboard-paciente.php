@@ -21,8 +21,8 @@ if ($resId->num_rows > 0) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/e221cb5c78.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="src/styles/main.css" />
-    <link rel="stylesheet" href="src/styles/main-interfaz.css">
     <link rel="stylesheet" href="src/styles/paciente/dashboard.css">
+    <link rel="stylesheet" href="src/styles/main-interfaz.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
     <script src="src/js/chart.js" defer></script>
     <title>Dashboard del paciente</title>
@@ -31,23 +31,21 @@ if ($resId->num_rows > 0) {
 <body>
 <?php include("./partials/header-interfaz.php") ?>
     <main>
-        <aside class="menu__secundario">
-            <div class="perfil">
-                <img src="src/images/fotoPerfilNutricionista.jpg" alt="foto de perfil" />
-                <span class="nombre-usuario" style="display: block">@<?php echo $_SESSION['usuario'] ?></span>
-            </div>
-            <ul class="menu--items">
-                <li class="perfil__movil"><i class="fa-solid fa-user"></i></li>
-                <li class="selected"><a href="dashboard-nutri.php"><i class="fa-solid fa-table-columns"></i>
-                        <span>dashboard</span></a>
-                </li>
-                <li><a href="ficheros.php"><i class="fa-solid fa-file-invoice"></i>
-                        <span>ficheros</span></a></li>
-                <li><a href="pesaje.php"><i class="fa-solid fa-weight-hanging"></i> <span>pesaje</span></a></a></li>
-                <li><a href="notificaciones.php"><i class="fa-solid fa-envelope"></i> <span>notificaciones</span></a>
-                </li>
-            </ul>
-        </aside>
+    <aside class="menu__secundario">
+      <div class="perfil">
+        <img src="src/images/fotoPerfilNutricionista.jpg" alt="foto de perfil" />
+        <span class="nombre-usuario" style="display: block">@<?php echo $_SESSION['usuario'] ?></span>
+      </div>
+      <ul class="menu--items">
+        <li class="perfil__movil"><i class="fa-solid fa-user"></i></li>
+        <li class="selected"><a href="dashboard-paciente.php"><i class="fa-solid fa-table-columns"></i> <span>dashboard</span></a>
+        </li>
+        <li><a href="ficheros.php"><i class="fa-solid fa-file-invoice"></i>
+            <span>ficheros</span></a></li>
+        <li><a href="pesaje.php"><i class="fa-solid fa-weight-hanging"></i> <span>pesaje</span></a></a></li>
+        <li><a href="notificaciones.php"><i class="fa-solid fa-envelope"></i> <span>notificaciones</span></a></li>
+      </ul>
+    </aside>
         <section>
             <article class="content">
                 <div class="datos">
@@ -94,7 +92,7 @@ if ($resId->num_rows > 0) {
 
                         </tbody>
                     </table>
-                    <button onclick="window.modal.showModal();">Editar datos</button>
+                    <button id="openModalButton">Editar datos</button>
                 </div>
                 <div class="ficheros">
                     <div class="table-wrapper">
@@ -129,7 +127,7 @@ if ($resId->num_rows > 0) {
                     </div>
                 </div>
                 <div class="grafica">
-                    <canvas id="myChart" width="600" height="300"></canvas>
+                    <canvas id="myChart" max-width="500" max-height="400"></canvas>
                 </div>
             </article>
         </section>
@@ -161,10 +159,14 @@ if ($resId->num_rows > 0) {
     <?php include("./partials/footer.php") ?>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-
+            const openModalButton = document.getElementById('openModalButton');
             const closeModalButton = document.getElementById('closeModalButton');
             const myModal = document.getElementById('modal');
             const registroForm = document.getElementById('registroForm');
+
+            openModalButton.addEventListener('click', function(){
+              myModal.showModal();
+            })
 
             //Lo cierro con esta funcion para controlar que limpie los mensajes de error después de cerrarlo.
             closeModalButton.addEventListener('click', function () {

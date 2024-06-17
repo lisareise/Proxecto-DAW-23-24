@@ -167,6 +167,7 @@ tr td:first-child {
 
 tr td:last-child {
   text-align: right;
+  width: 110px;
 }
 
 .ficheros form input[type="submit"] {

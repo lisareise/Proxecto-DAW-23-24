@@ -21,6 +21,7 @@
       - [2.8.2 - Viabilidade económica](#282---viabilidade-económica)
       - [2.8.3- Conclusión](#283--conclusión)
   - [Prevención de riscos laborais (interesante no caso da miña idea de negocio)](#prevención-de-riscos-laborais-interesante-no-caso-da-miña-idea-de-negocio)
+      - [Riscos](#riscos)
       - [Medidas preventivas](#medidas-preventivas)
   - [4- Requirimentos técnicos](#4--requirimentos-técnicos)
   - [7- Planificación](#7--planificación)
@@ -194,7 +195,7 @@ Microcréditos do Ministerio de Igualdade (programa PAEM): Micro financiación d
 
 ## Prevención de riscos laborais (interesante no caso da miña idea de negocio) 
 
-- #### Riscos
+#### Riscos
  - Posibilidade de ser hackeado.
  - Perda de datos do desenvolvemento web.
  - Erros no desenvolvemento ou despregamento.

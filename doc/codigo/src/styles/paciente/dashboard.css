@@ -101,7 +101,7 @@ dialog input[type="reset"]:hover {
 
 
 .content {
-  padding: 130px 4rem 3rem;
+  padding: 100px 2rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: repeat(3, 200px);

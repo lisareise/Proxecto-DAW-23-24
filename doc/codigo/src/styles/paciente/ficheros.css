@@ -30,6 +30,7 @@ td {
 
 td:last-child{
     text-align: right;
+    width: 110px;
 }
 
 th {

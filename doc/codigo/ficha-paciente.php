@@ -105,7 +105,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["send"])) {
                         if ($result->num_rows > 0) {
                             while ($row = $result->fetch_array()) {
                                 echo $row[0] . "</h4>"; ?>
-                                <button onclick="window.modal.showModal();"><span class="texto">enviar mensaje</span> <i
+                                <button id="openModalButton"><span class="texto">enviar mensaje</span> <i
                                         class="fa-regular fa-envelope"></i></button>
                         </div>
                         <div class="ordenacion">
@@ -179,11 +179,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["send"])) {
                             method="POST">
                             <input type="file" name="archivo">
                             <input type="hidden" name="MAX_FILE_SIZE" value="1024000" />
-                            <input type="submit" name="send" value="Compartir">
+                            <input type="submit" name="send" value="Compartir fichero">
                         </form>
                     </div>
                     <div class="grafica">
-                        <canvas id="myChart" width="600" height="300"></canvas>
+                    <canvas id="myChart" max-width="500" max-height="400"></canvas>
                     </div>
                 </div>
 
@@ -208,10 +208,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["send"])) {
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-
+            const openModalButton = document.getElementById('openModalButton');
             const closeModalButton = document.getElementById('closeModalButton');
             const myModal = document.getElementById('modal');
             const mensajeForm = document.getElementById('mensajeForm');
+
+            openModalButton.addEventListener('click', function(){
+              myModal.showModal();
+            })
 
             //Lo cierro con esta funcion para controlar que limpie los mensajes de error después de cerrarlo.
             closeModalButton.addEventListener('click', function () {

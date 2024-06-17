@@ -82,7 +82,7 @@ if (!isset($_SESSION['usuario'])) {
           </table>
         </div>
         <div class="botones">
-          <button onclick="window.modal.showModal();" class="anhadir"">añadir
+          <button id="openModalButton" class="anhadir"">añadir
             paciente</button>
           <a class="eliminar" href="borrar-pacientes.php">eliminar paciente</a>
         </div>
@@ -148,11 +148,15 @@ if (!isset($_SESSION['usuario'])) {
   <?php include("./partials/footer.php") ?>
   <script>
         document.addEventListener('DOMContentLoaded', function () {
-            
+            const openModalButton = document.getElementById('openModalButton');
             const closeModalButton = document.getElementById('closeModalButton');
             const myModal = document.getElementById('modal');
             const registroForm = document.getElementById('registroForm');
 
+            openModalButton.addEventListener('click', function(){
+              myModal.showModal();
+            })
+            
             //Lo cierro con esta funcion para controlar que limpie los mensajes de error después de cerrarlo.
             closeModalButton.addEventListener('click', function () {
                 // Limpiar mensajes de error anteriores
