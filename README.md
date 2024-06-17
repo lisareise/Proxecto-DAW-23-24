@@ -40,12 +40,12 @@ Nese archivo insértase automáticamente un nutricionista, o que dispón dun nom
 Para importar o código no servidor XAMPP as indicacións son as seguintes:
 
 1. Cando se descarga o XAMPP, créase no sistema unha carpeta chamada xampp, dentro desta hai numerosas carpetas, a que nos interesa é unha chamada "htdocs".
-2. Dentro da carpeta de "htdocs" creamos unha nova carpeta.
+2. Dentro da carpeta de "htdocs" creamos unha nova carpeta chamada "TFC".
 3. Copiamos a carpeta chamada "codigo" do proxecto e pegámola dentro da carpeta que creamos anteriormente.
 
-Para probar o código:
+Para probar o código:    
 1. Abrimos o panel de control de XAMPP e iniciamos os servizos Apache e MySQL.
-2. No noso navegador escribimos: localhost/"nome da carpeta que creamos"/codigo  
+2. No noso navegador escribimos: localhost/TFC/codigo  
 3. Debería aparecer o que sería a landing da plataforma, que é a páxina de inicio no que está toda a explicación do que é a web.
 
 ## Uso
@@ -56,9 +56,9 @@ O paciente poderá actualizar os datos de contacto sempre que queira, acceder ao
 
 ## Sobre o autor
 
-Son estudante de desenvolvemento de aplicacións web, as linguaxes que mellor manexo son HTML, CSS, PHP e JavaScript. O meu punto forte e o que máis disfruto é crear os deseños da web e maquetalas.
+Son estudante de desenvolvemento de aplicacións web, as linguaxes que mellor manexo son HTML, CSS, PHP e JavaScript. O meu punto forte e o que máis disfruto é crear os deseños das webs e maquetalas.
 
-Este proxecto nace dun problema persoal e de buscar a maneira de como resolvelo, xa que no último ano tiven moitas citas presenciais con médicos e polo tanto as miñas asistencias a clase aumentaron considerablemente, o que me fixo pensar que sería unha boa oportunidade poder crear unha plataforma sanitaria que conectase aos pacientes cos seus profesionais médicos sen perder asistencia ás súas obligacións, pero que ese contacto fose inda así de calidade.
+Este proxecto nace dun problema persoal, e de buscar a maneira de como resolvelo, xa que no último ano tiven moitas citas presenciais con médicos e polo tanto as miñas asistencias a clase aumentaron considerablemente, o que me fixo pensar que sería unha boa oportunidade poder crear unha plataforma sanitaria que conectase aos pacientes cos seus profesionais médicos sen perder asistencia ás súas obligacións, pero, que ese contacto fose inda así, de calidade.
 
 Unha forma de contactar conmigo é escribindome ao meu correo personal: lisa.reise14@gmail.com
 
