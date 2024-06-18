@@ -49,6 +49,26 @@ Conta cun inicio de sesión, e dentro de cada interfaz, as funcionalidades que s
 
 No caso de dúbidas existe un formulario de contacto no que se poderá preguntar por calquera dúbida que surxa, e nun futuro se planea implementar un chatbox que poida responder a preguntas frecuentes.
 
+Para utilizala:
+- Para iniciar sesión, os nutricionistas e os pacientes inician sesión na misma pestana (login.php).
+  
+Como nutricionista:
+- O nutricionista inicial que se inserta coa importación da base de datos ten as seguintes credenciais:
+  - nome de usuario: carmen_fraga
+  - contrasinal: abc123.
+- O primeiro que ve será o seu dashboard no que terá un calendario, unha preview dos seus pacientes, e as consultas que tería hoxe. (o último non está implementado, o mesmo pasa co calendario)
+- Se vai á pestana que pon "pacientes" terá unha lista con todos os pacientes aos que deu de alta. (Nun futuro poderá buscalos no buscador, de momento non está implementado) 
+  Ten dous botóns, un para añadir novos pacientes (aparecerá unha ventana modal cun formulario), e o de borrar pacientes (Aparecerán caixas para seleccionar todos os pacientes que desexe eliminar).
+- Ao pulsar sobre o nome dun dos pacientes desa lista na pestana de pacientes, mostrarase unha ficha no que aparecen os datos do paciente e no caso de que teña pesos rexistrados aparecerá unha gráfica con eses rexistros. Tamén ten a opción de mandar unha mensaxe ou de compartirlle un ficheiro.
+
+Como paciente:
+
+- Inicia sesión coas credenciais dadas polo seu nutricionista.
+- O primeiro que verá será un dashboard cos seus datos persoais, que poderá modificar en calqueira momento se preme no botón "editar datos", se o fai aparecerá unha ventana modal cos datos que pode modificar. e tamén ten o que sería unha preview dos ficheiros que lle foron compartidos polo seu nutricionista.
+- Na pestana "ficheros" terá unha lista deses ficheiros mencionados e nun futuro, se ten moitos compartidos poderá buscalos polo nome, de momento pode descargalos se preme no nome de cada ficheiro e así visualizalos.
+- Na pestana de pesos terá un pequeno formulario inicialmente, cando rexistre o seu primeiro peso mostrarase unha frase coa data da última inserción e o dato en cuestión. Cando faga ese rexistro poderá observar no seu dashboard unha gráfica no que se verán reflexados a partir de agora todos os datos (só verá un dato por mes).
+- Na pestana "notificaciones" poderá ver todos os avisos que lle manda o seu nutricionista, de máis a menos actual.
+
 ## 3- Melloras futuras
 
 Como ben se indicaba no principio deste proxecto, unha idea de mellora xeral e ampliar a plataforma web implementando funcionalidades doutras áreas da saúde para abarcar un maior número de clientes e usuarios para a aplicación.
