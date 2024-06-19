@@ -1,5 +1,5 @@
-create database if not exists NutriSmart;
-use NutriSmart;
+create database if not exists nutrismart;
+use nutrismart;
 
 create table if not exists nutricionista
 (num_colegiado int,

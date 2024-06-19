@@ -145,7 +145,7 @@
               necesitas.
             </p>
 
-            <a class="button" href="./contacto.html"
+            <a class="button" href="./contacto.php"
               ><span>Contacta</span>
               <i class="fa-sharp fa-solid fa-arrow-right"></i
             ></a>
